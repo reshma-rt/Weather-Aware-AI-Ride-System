@@ -36,3 +36,6 @@ node_modules/
 
 # Recording metadata
 !Movio_Custom_Recordings/**/*.csv
+
+# Recording metadata
+!Movio_Custom_Recordings/**/*.csv

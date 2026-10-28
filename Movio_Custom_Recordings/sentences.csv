@@ -1,0 +1,201 @@
+﻿prompt_id,category,text,speaker_id
+TA001,tamil,எனக்கு ஒரு கார் புக் செய்ய வேண்டும்.,S01
+TA002,tamil,நான் சென்னை சென்ட்ரல் செல்ல வேண்டும்.,S01
+TA003,tamil,ஓட்டுநர் இன்னும் வரவில்லை.,S01
+TA004,tamil,என் வண்டி எப்போது வரும்?,S01
+TA005,tamil,பயணத்தை ரத்து செய்ய வேண்டும்.,S01
+TA006,tamil,என் இருப்பிடத்திற்கு வண்டியை அனுப்புங்கள்.,S01
+TA007,tamil,ஓட்டுநரின் தொலைபேசி எண்ணை சொல்லுங்கள்.,S01
+TA008,tamil,நான் விமான நிலையம் செல்ல வேண்டும்.,S01
+EN001,english,I would like to book a cab.,S01
+EN002,english,Please send a cab to my current location.,S01
+EN003,english,I need to go to Chennai Central.,S01
+EN004,english,I need a cab to the airport.,S01
+EN005,english,When will my driver arrive?,S01
+EN006,english,My driver has not arrived yet.,S01
+EN007,english,Where is my cab right now?,S01
+EN008,english,Please connect me with the driver.,S01
+TG001,tanglish,எனக்கு ஒரு cab book பண்ணணும்.,S01
+TG002,tanglish,Airportக்கு ஒரு cab வேணும்.,S01
+TG003,tanglish,Driver இன்னும் வரல.,S01
+TG004,tanglish,என் cab எப்ப வரும்?,S01
+TG005,tanglish,Booking cancel பண்ணணும்.,S01
+TG006,tanglish,என் current locationக்கு cab அனுப்புங்க.,S01
+TG007,tanglish,Driver phone number share பண்ணுங்க.,S01
+TG008,tanglish,Chennai Centralக்கு போகணும்.,S01
+TG009,tanglish,Cab இப்ப எங்க இருக்கு?,S01
+TG010,tanglish,Driverக்கு call பண்ண முடியுமா?,S01
+TG011,tanglish,என் booking confirm ஆயிடுச்சா?,S01
+TG012,tanglish,Driver வர இன்னும் எவ்வளவு time ஆகும்?,S01
+TR001,transportation_entity,Your cab will arrive at 7:30 PM.,S01
+TR002,transportation_entity,உங்கள் cab காலை 6:15 மணிக்கு வரும்.,S01
+TR003,transportation_entity,Pickup time is 8:45 AM.,S01
+TR004,transportation_entity,Driver மாலை 5:30 மணிக்கு வருவார்.,S01
+TR005,transportation_entity,"Your ride is scheduled for September 5, 2026.",S01
+TR006,transportation_entity,உங்கள் booking 05/09/2026 அன்று உள்ளது.,S01
+TR007,transportation_entity,The estimated travel time is 45 minutes.,S01
+TR008,transportation_entity,Driver இன்னும் 12 minutesல வந்துருவார்.,S01
+TR009,transportation_entity,Your total fare is ₹650.,S01
+TR010,transportation_entity,உங்கள் fare ₹450 ஆகும்.,S01
+TR011,transportation_entity,The estimated fare is Rs 725.,S01
+TR012,transportation_entity,"Airportக்கு total fare ₹1,250 ஆகும்.",S01
+TA009,tamil,வண்டி எங்கே இருக்கிறது?,S02
+TA010,tamil,ஓட்டுநருடன் என்னை இணைக்க முடியுமா?,S02
+TA011,tamil,என் பயணம் உறுதி செய்யப்பட்டதா?,S02
+TA012,tamil,இன்னும் எவ்வளவு நேரம் ஆகும்?,S02
+TA013,tamil,நான் பத்து நிமிடங்களாக காத்திருக்கிறேன்.,S02
+TA014,tamil,வண்டி இன்னும் வரவில்லை.,S02
+TA015,tamil,வேறு வண்டியை அனுப்ப முடியுமா?,S02
+TA016,tamil,நான் செல்ல வேண்டிய இடத்தை மாற்ற வேண்டும்.,S02
+EN009,english,I want to cancel my booking.,S02
+EN010,english,Can you send another driver?,S02
+EN011,english,I want to change my pickup location.,S02
+EN012,english,I want to change my destination.,S02
+EN013,english,My driver is at the wrong location.,S02
+EN014,english,Please share the driver's phone number.,S02
+EN015,english,Is my booking confirmed?,S02
+EN016,english,How long will the driver take to arrive?,S02
+TG013,tanglish,நான் ten minutesஆ wait பண்ணிட்டு இருக்கேன்.,S02
+TG014,tanglish,வேற driver assign பண்ணுங்க.,S02
+TG015,tanglish,Pickup location change பண்ணணும்.,S02
+TG016,tanglish,Drop location change பண்ணணும்.,S02
+TG017,tanglish,Driver wrong locationல இருக்காரு.,S02
+TG018,tanglish,நான் T Nagarல wait பண்ணிட்டு இருக்கேன்.,S02
+TG019,tanglish,OMRக்கு cab கிடைக்குமா?,S02
+TG020,tanglish,Chennai Airportக்கு ride book பண்ணுங்க.,S02
+TG021,tanglish,Total fare எவ்வளவு வரும்?,S02
+TG022,tanglish,Cash payment பண்ணலாமா?,S02
+TG023,tanglish,UPIல payment பண்ண முடியுமா?,S02
+TG024,tanglish,Extra charge ஏன் add பண்ணிருக்கீங்க?,S02
+TR013,transportation_entity,Your fare is ₹450.50.,S02
+TR014,transportation_entity,இந்த tripக்கு ₹85 toll charge இருக்கு.,S02
+TR015,transportation_entity,The distance is 12.7 kilometres.,S02
+TR016,transportation_entity,Airport இன்னும் 18.5 km distance இருக்கு.,S02
+TR017,transportation_entity,Your destination is 6 kilometres away.,S02
+TR018,transportation_entity,Pickup location 2.5 km away இருக்கு.,S02
+TR019,transportation_entity,Your OTP is 4821.,S02
+TR020,transportation_entity,உங்கள் OTP 7396.,S02
+TR021,transportation_entity,Please tell the driver OTP 51684.,S02
+TR022,transportation_entity,Driverக்கு OTP 904271 சொல்லுங்க.,S02
+TR023,transportation_entity,My phone number is 9876543210.,S02
+TR024,transportation_entity,Driver phone number 9840123456.,S02
+TA017,tamil,என்னுடைய ஏற்றுமிடத்தை மாற்ற வேண்டும்.,S03
+TA018,tamil,நான் தி நகரில் காத்திருக்கிறேன்.,S03
+TA019,tamil,ஓட்டுநர் தவறான இடத்திற்கு சென்றுள்ளார்.,S03
+TA020,tamil,என்னுடைய பயண விவரங்களை சொல்லுங்கள்.,S03
+TA021,tamil,கட்டணம் எவ்வளவு ஆகும்?,S03
+TA022,tamil,பணமாக செலுத்தலாமா?,S03
+TA023,tamil,இணைய வழியாக பணம் செலுத்த முடியுமா?,S03
+TA024,tamil,பயணத்தின் மொத்த கட்டணம் என்ன?,S03
+EN017,english,I have been waiting for ten minutes.,S03
+EN018,english,Please ask the driver to call me.,S03
+EN019,english,How much will the ride cost?,S03
+EN020,english,What is the estimated fare?,S03
+EN021,english,Can I pay by cash?,S03
+EN022,english,Can I pay using UPI?,S03
+EN023,english,Why was an additional charge added?,S03
+EN024,english,Please send me the payment receipt.,S03
+TG025,tanglish,Payment receipt send பண்ணுங்க.,S03
+TG026,tanglish,Refund எப்ப கிடைக்கும்?,S03
+TG027,tanglish,Driver ride cancel பண்ணிட்டாரு.,S03
+TG028,tanglish,எனக்கு another cab வேணும்.,S03
+TG029,tanglish,இந்த cabல AC இருக்கா?,S03
+TG030,tanglish,நாங்க four passengers.,S03
+TG031,tanglish,எங்ககிட்ட two luggage bags இருக்கு.,S03
+TG032,tanglish,நான் child கூட travel பண்ணுறேன்.,S03
+TG033,tanglish,Driver சீக்கிரம் வர சொல்லுங்க.,S03
+TG034,tanglish,Routeல traffic அதிகமா இருக்கா?,S03
+TG035,tanglish,Alternative route எடுத்துக்க முடியுமா?,S03
+TG036,tanglish,Hospitalக்கு urgentஆ போகணும்.,S03
+TR025,transportation_entity,Please call me on 9500012345.,S03
+TR026,transportation_entity,Contact number is +91 98840 56789.,S03
+TR027,transportation_entity,Driver number plus nine one nine eight four zero one two three four five six.,S03
+TR028,transportation_entity,My alternate number is 044 2345 6789.,S03
+TR029,transportation_entity,Your booking ID is CAB48291.,S03
+TR030,transportation_entity,என் booking ID TXN74216.,S03
+TR031,transportation_entity,Please check booking ID CHN50832.,S03
+TR032,transportation_entity,Ride reference number is TAXI2026451.,S03
+TR033,transportation_entity,Your vehicle number is TN-09-AB-1234.,S03
+TR034,transportation_entity,Driver vehicle number TN-10-BX-4587.,S03
+TR035,transportation_entity,Cab number TN-22-CK-9045 வந்துடுச்சா?,S03
+TR036,transportation_entity,உங்கள் vehicle registration TN-01-AD-7621.,S03
+TA025,tamil,கூடுதல் கட்டணம் ஏன் சேர்க்கப்பட்டுள்ளது?,S04
+TA026,tamil,எனக்கு ரசீது வேண்டும்.,S04
+TA027,tamil,என் பணம் திரும்ப கிடைக்குமா?,S04
+TA028,tamil,ஓட்டுநர் பயணத்தை ரத்து செய்துவிட்டார்.,S04
+TA029,tamil,நான் வேறு ஓட்டுநரை விரும்புகிறேன்.,S04
+TA030,tamil,இந்த வண்டியில் குளிர்சாதன வசதி உள்ளதா?,S04
+TA031,tamil,நான்கு பேர் பயணம் செய்ய வேண்டும்.,S04
+TA032,tamil,எங்களிடம் இரண்டு பெரிய பைகள் உள்ளன.,S04
+EN025,english,When will I receive my refund?,S04
+EN026,english,The driver cancelled my ride.,S04
+EN027,english,I need a different cab.,S04
+EN028,english,Is air conditioning available in this vehicle?,S04
+EN029,english,We are four passengers.,S04
+EN030,english,We have two large bags.,S04
+EN031,english,I am travelling with a child.,S04
+EN032,english,Please ask the driver to come quickly.,S04
+TG037,tanglish,Main gateல drop பண்ண சொல்லுங்க.,S04
+TG038,tanglish,என் live location driverக்கு send பண்ணுங்க.,S04
+TG039,tanglish,Driver என்னை call பண்ண சொல்லுங்க.,S04
+TG040,tanglish,Cab வந்ததும் notification அனுப்புங்க.,S04
+TG041,tanglish,Morning six o'clockக்கு cab book பண்ணணும்.,S04
+TG042,tanglish,Evening seven thirtyக்கு pickup வேணும்.,S04
+TG043,tanglish,Tomorrow airport dropக்கு cab வேணும்.,S04
+TG044,tanglish,இன்று night cab கிடைக்குமா?,S04
+TG045,tanglish,Driver five minutesல வருவாரா?,S04
+TG046,tanglish,Pickup point Chennai Central main entrance.,S04
+TG047,tanglish,Drop location Guindy railway station.,S04
+TG048,tanglish,நான் Velacheryல இருந்து airport போகணும்.,S04
+TR037,transportation_entity,Pickup is at Chennai Central Platform 7.,S04
+TR038,transportation_entity,நான் Platform 4ல wait பண்ணிட்டு இருக்கேன்.,S04
+TR039,transportation_entity,Driver Gate 3க்கு வர சொல்லுங்க.,S04
+TR040,transportation_entity,Pickup point is Airport Gate 5.,S04
+TR041,transportation_entity,"Please come to No. 24, Anna Salai, Teynampet.",S04
+TR042,transportation_entity,"Pickup address is 18, North Usman Road, T Nagar.",S04
+TR043,transportation_entity,"Driver 42, Velachery Main Roadக்கு வரணும்.",S04
+TR044,transportation_entity,"Drop me at 16, OMR, Thoraipakkam.",S04
+TR045,transportation_entity,Pickup Chennai Central main entranceல இருக்கு.,S04
+TR046,transportation_entity,Drop location is Chennai International Airport Terminal 2.,S04
+TR047,transportation_entity,நான் Kilpauk Medical College Hospital entranceல இருக்கேன்.,S04
+TR048,transportation_entity,Driver Phoenix Marketcity gateக்கு வர சொல்லுங்க.,S04
+TA033,tamil,குழந்தையுடன் பயணம் செய்கிறேன்.,S05
+TA034,tamil,தயவுசெய்து வண்டியை சீக்கிரம் அனுப்புங்கள்.,S05
+TA035,tamil,சாலையில் அதிக போக்குவரத்து இருக்கிறதா?,S05
+TA036,tamil,மாற்று வழியில் செல்ல முடியுமா?,S05
+TA037,tamil,நான் மருத்துவமனைக்கு செல்ல வேண்டும்.,S05
+TA038,tamil,என்னை முக்கிய நுழைவாயிலில் இறக்குங்கள்.,S05
+TA039,tamil,ஓட்டுநருக்கு என் இருப்பிடத்தை அனுப்புங்கள்.,S05
+TA040,tamil,பயணம் முடிந்ததும் எனக்கு தகவல் அனுப்புங்கள்.,S05
+EN033,english,Is there heavy traffic on the route?,S05
+EN034,english,Can the driver take another route?,S05
+EN035,english,I need to go to the hospital.,S05
+EN036,english,Please drop me near the main entrance.,S05
+EN037,english,Please share my location with the driver.,S05
+EN038,english,I cannot find the driver.,S05
+EN039,english,The cab is moving in the wrong direction.,S05
+EN040,english,Please notify me when the cab arrives.,S05
+TG049,tanglish,Anna Nagarக்கு fare எவ்வளவு?,S05
+TG050,tanglish,T Nagarல இருந்து Centralக்கு cab வேணும்.,S05
+TG051,tanglish,Driver route change பண்ணிட்டாரு.,S05
+TG052,tanglish,Cab number என்னன்னு சொல்லுங்க.,S05
+TG053,tanglish,Booking details மறுபடியும் சொல்லுங்க.,S05
+TG054,tanglish,Driver name என்ன?,S05
+TG055,tanglish,Estimated arrival time சொல்லுங்க.,S05
+TG056,tanglish,Ride status check பண்ணணும்.,S05
+TG057,tanglish,இந்த tripக்கு toll charge இருக்கா?,S05
+TG058,tanglish,Peak hour charge apply ஆகுமா?,S05
+TG059,tanglish,என் payment successfulஆ ஆயிடுச்சா?,S05
+TG060,tanglish,Customer supportக்கு connect பண்ணுங்க.,S05
+TR049,transportation_entity,Route number 21G bus stopக்குப் பக்கத்தில் இருக்கேன்.,S05
+TR050,transportation_entity,Pick me up near Street Number 4.,S05
+TR051,transportation_entity,Your cab is five minutes away from T Nagar.,S05
+TR052,transportation_entity,Chennai Centralல இருந்து airport 19.4 km இருக்கு.,S05
+TR053,transportation_entity,Your driver will arrive at 6:30 PM near Gate 2.,S05
+TR054,transportation_entity,Booking CAB93721க்கு fare ₹875 ஆகும்.,S05
+TR055,transportation_entity,Vehicle TN-09-CF-6723 காலை 8:20 மணிக்கு வரும்.,S05
+TR056,transportation_entity,OTP 7315 driverக்கு சொல்லிட்டு cabல ஏறுங்க.,S05
+TR057,transportation_entity,Phone number 98400 12345க்கு driver call பண்ணுவார்.,S05
+TR058,transportation_entity,Airport Terminal 1க்கு 14.8 kilometres distance இருக்கு.,S05
+TR059,transportation_entity,Your booking ID CAB65027 is confirmed for 9:15 AM.,S05
+TR060,transportation_entity,TN-22-AB-4589 cab Chennai Central Gate 4க்கு 7:45 PMல வரும்.,S05

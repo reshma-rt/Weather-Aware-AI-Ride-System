@@ -1,0 +1,34 @@
+/* Fits the current white, charcoal and gold customer-dashboard theme. */
+#riderPanel .movio-booking-clickable{cursor:pointer;transition:border-color .15s,box-shadow .15s}
+#riderPanel .movio-booking-clickable:hover{border-color:#d7ae3b;box-shadow:0 3px 14px #17202d0a}
+#riderPanel [data-open-booking],#movioCurrentBookingDetails{min-height:44px;white-space:normal;line-height:1.4}
+#suggestions .movio-address-result{display:block;text-align:left;width:100%;padding:13px;border:1px solid #e0e4e9;border-radius:10px;background:#fff;color:#26313e;font:inherit;line-height:1.5;margin:5px 0;white-space:normal;overflow-wrap:anywhere;cursor:pointer}
+#suggestions .movio-address-result:hover,#suggestions .movio-address-result:focus-visible{background:#fff7df;border-color:#d7ae3b}
+#movioBookingDetails{width:min(640px,calc(100vw - 28px));max-height:calc(100dvh - 28px);box-sizing:border-box;padding:0;border:1px solid #e1e5eb;border-radius:20px;background:#fff;color:#202936;box-shadow:0 24px 90px #10182038;font-family:inherit;overflow:hidden}
+#movioBookingDetails::backdrop{background:#111a2d70;backdrop-filter:blur(3px)}
+#movioBookingDetails *{box-sizing:border-box;min-width:0}
+#movioBookingDetails .movio-detail-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 24px 18px;border-bottom:1px solid #e9ebef;background:#fffcf3}
+#movioBookingDetails h2{margin:5px 0 0;font-size:22px;line-height:1.35;letter-spacing:-.4px}
+#movioBookingDetails .movio-detail-eyebrow{font-size:10px;font-weight:750;letter-spacing:1.4px;color:#70798a}
+#movioBookingDetails .movio-detail-close{display:grid;place-items:center;width:42px;height:42px;flex:none;padding:0;border:1px solid #dfe3e8;border-radius:12px;background:#fff;color:#354153;font-size:26px;cursor:pointer}
+#movioBookingDetails .movio-detail-content{padding:20px 24px;max-height:calc(100dvh - 210px);overflow:auto;overscroll-behavior:contain}
+#movioBookingDetails .movio-detail-status{display:inline-block;padding:6px 11px;margin-bottom:18px;border-radius:999px;background:#fff1c4;color:#715514;font-size:12px;font-weight:700;text-transform:capitalize}
+#movioBookingDetails dl{margin:0}
+#movioBookingDetails .movio-detail-addresses{display:grid;gap:14px;padding-bottom:20px;margin-bottom:18px;border-bottom:1px solid #e9ecf0}
+#movioBookingDetails .movio-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px}
+#movioBookingDetails dt{margin:0 0 5px;font-size:11px;line-height:1.4;color:#727d8d;font-weight:600}
+#movioBookingDetails dd{margin:0;font-size:14px;font-weight:600;line-height:1.6;color:#263140;overflow-wrap:anywhere}
+#movioBookingDetails .movio-detail-wide{grid-column:1/-1}
+#movioBookingDetails .movio-detail-section{border-top:1px solid #e9ecf0;margin-top:20px;padding-top:18px}
+#movioBookingDetails h3,#movioBookingDetails summary{font-size:14px;font-weight:700;margin:0 0 13px;line-height:1.5}
+#movioBookingDetails summary{cursor:pointer;margin-bottom:0;min-height:30px}
+#movioBookingDetails .movio-detail-muted{font-size:13px;line-height:1.7;color:#637082;margin:6px 0}
+#movioBookingDetails a{color:#8b6500;text-decoration:underline;text-underline-offset:3px}
+#movioBookingDetails .movio-detail-otp{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:15px 17px;margin-top:20px;border:1px solid #ecdfb7;border-radius:12px;background:#fffbf0}
+#movioBookingDetails .movio-detail-otp strong{font-size:22px;letter-spacing:3px;font-weight:750;text-align:right}
+#movioBookingDetails .movio-detail-otp strong:not(:empty){overflow-wrap:anywhere}
+#movioBookingDetails .movio-detail-footer{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px 24px;border-top:1px solid #e8ebef;background:#fff}
+#movioBookingDetails .movio-detail-footer button{min-height:46px;border-radius:11px;border:1px solid #dce1e7;background:#fff;color:#394657;font:inherit;font-size:13px;font-weight:650;cursor:pointer}
+#movioBookingDetails .movio-detail-footer [data-close-details]{background:#202834;border-color:#202834;color:white}
+#movioBookingDetails button:focus-visible,#movioBookingDetails summary:focus-visible{outline:3px solid #d8a52c;outline-offset:3px}
+@media(max-width:520px){#movioBookingDetails{width:calc(100vw - 20px);max-height:calc(100dvh - 20px);border-radius:16px}#movioBookingDetails .movio-detail-head{padding:18px}#movioBookingDetails h2{font-size:20px}#movioBookingDetails .movio-detail-content{padding:18px;max-height:calc(100dvh - 192px)}#movioBookingDetails .movio-detail-grid{gap:15px}#movioBookingDetails .movio-detail-footer{padding:14px 18px}#movioBookingDetails .movio-detail-otp{align-items:flex-start;flex-direction:column}#movioBookingDetails .movio-detail-otp strong{text-align:left;letter-spacing:2px}}

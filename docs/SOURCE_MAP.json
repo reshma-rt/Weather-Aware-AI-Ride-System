@@ -1,0 +1,106 @@
+{
+  "source_notebook": "MOVIO_Kaggle_Notebook_Updated.ipynb",
+  "source_notebook_sha256": "981bc9a388739d1717ae2a602ca72c4d3ece0d45d098217fefb7d9ffc3bced0e",
+  "input_archive": "all_kaggle_inputs (1).zip",
+  "removed_exact_duplicate_cells": [
+    45,
+    47,
+    49,
+    137
+  ],
+  "removed_superseded_cells": [
+    33,
+    156,
+    164,
+    165,
+    180,
+    187,
+    188,
+    189
+  ],
+  "removed_reverted_changes": [
+    88,
+    89,
+    149,
+    150
+  ],
+  "replaced_input_installers": [
+    9,
+    11,
+    13,
+    83,
+    141
+  ],
+  "removed_mid_session_package_installers": [
+    0,
+    1,
+    5,
+    22,
+    54
+  ],
+  "stages": [
+    {
+      "name": "01_models",
+      "sha256": "b7c1eac2cba05d15060213342af4660ff3dcd826cc1ed6166bbbc54c34f1a695"
+    },
+    {
+      "name": "02_speech",
+      "sha256": "ded9d337bf21db022ade6640018d0bbb5e450ada3c94e168a4514fdd5be68a4d"
+    },
+    {
+      "name": "03_voice_configuration",
+      "sha256": "78daf4a4d70a58bbb8ed4a31122e88cd18edeb92232867c615cbce1c23898a91"
+    },
+    {
+      "name": "04_weather_voice_binding",
+      "sha256": "fca33666d68df115b79e4eec3b56fd850e66bf90fe313cb632339c2363dc5852"
+    },
+    {
+      "name": "05_forecast_voice",
+      "sha256": "49bbbf71cc0250ba2ad44a3d44a9b1601faa0b6b16b08f08cd45d509636b4472"
+    },
+    {
+      "name": "06_services",
+      "sha256": "bfa85b1b638248ceff821ebcd8c58cd5a5de42c1de06cbe76f8201fb5fc61a89"
+    }
+  ],
+  "removed_core_definitions": [
+    {
+      "cell": 27,
+      "function": "_clean_chunk"
+    },
+    {
+      "cell": 27,
+      "function": "route_reference_clean"
+    },
+    {
+      "cell": 27,
+      "function": "safe_semantic_chunks"
+    },
+    {
+      "cell": 27,
+      "function": "english_safe_chunks"
+    },
+    {
+      "cell": 27,
+      "function": "prepare_movio_request"
+    },
+    {
+      "cell": 37,
+      "function": "english_safe_chunks"
+    }
+  ],
+  "partially_pruned_cells": [
+    27,
+    37
+  ],
+  "excluded_unreferenced_legacy_file": "app/integrations/movio_tts_preprocessing_original.py",
+  "packaging_adjustments": [
+    "Initial displayed speech settings match final 3/4, speed 1.12, first chunk 2-3 words.",
+    "The shared call_smart_chunker helper is retained while replaced early preparation functions are removed.",
+    "Existing zero-overlap guard retained."
+  ],
+  "current_project_authoritative": true,
+  "runtime_adapters_sha256": "5cb92eaef7009ff6129944707f55860a4b8949744b47a0a21b1ddfead88a17e4",
+  "stage_count": 6
+}

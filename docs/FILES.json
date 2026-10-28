@@ -1,0 +1,382 @@
+[
+  {
+    "path": ".env.example",
+    "bytes": 146,
+    "sha256": "e7eea9cc36263c128c659bfce620f9c70c0a0041c2d9843ff6c00abeaa1a0fa9"
+  },
+  {
+    "path": ".gitignore",
+    "bytes": 437,
+    "sha256": "9831d11d053f0a08fae30e4820036e6515ec4f3599a1806e0730d69c49a5be29"
+  },
+  {
+    "path": "MOVIO_Pipeline.ipynb",
+    "bytes": 4380,
+    "sha256": "f888b2b923f53219039b6aa5af37110d03932707be65871d48c360891fb21710"
+  },
+  {
+    "path": "README.md",
+    "bytes": 5319,
+    "sha256": "f29e9409515ad313eddc2f97d0df800d1c42f0838dfad37af9ed35266c61e540"
+  },
+  {
+    "path": "THIRD_PARTY.md",
+    "bytes": 1194,
+    "sha256": "6b4cbad2584e1f4f83b40101a3044b2566c5bb2afcd3a9cde7b655909bcb851a"
+  },
+  {
+    "path": "app/gateway.py",
+    "bytes": 3658,
+    "sha256": "90f7f44b138d462685113d4ba5d8045189a8fd15e8c967f19add1435702ab034"
+  },
+  {
+    "path": "app/integrations/ai_call_page.html",
+    "bytes": 57828,
+    "sha256": "723c6959c972c63fb85b59180a9935ae299e970cfa980331dcfacea3a5c2058a"
+  },
+  {
+    "path": "app/integrations/ai_call_sarvam.py",
+    "bytes": 35352,
+    "sha256": "e236b821954fdd8296a5570abe1878a1c490c9d99d2238c5dbbf04b78bd4ac8b"
+  },
+  {
+    "path": "app/integrations/movio_booking_reliability.py",
+    "bytes": 12832,
+    "sha256": "05b51c5c754e20d25258a91697ca85349d326b5a099abc67d7285e1ead165db8"
+  },
+  {
+    "path": "app/integrations/movio_confirmation_flow.py",
+    "bytes": 22599,
+    "sha256": "1b6827aa18c411f715c96f448c3026dff23bc5b766cf64fa4e3ddaaa3e552589"
+  },
+  {
+    "path": "app/integrations/movio_customer_care.py",
+    "bytes": 42613,
+    "sha256": "e469bcbc310630edecf8e0550958a9429598fb5411786890c0d4b59483e48a31"
+  },
+  {
+    "path": "app/integrations/movio_customer_care_api.py",
+    "bytes": 10328,
+    "sha256": "fbdb6c5109a79abc712732c2d0a82aeb26462a0321da805aa61611a56f000e89"
+  },
+  {
+    "path": "app/integrations/movio_customer_care_context.py",
+    "bytes": 4626,
+    "sha256": "190a3220fe086870502ca89f73b85fd91cef5927c0748e5b603a243b1784a7fe"
+  },
+  {
+    "path": "app/integrations/movio_customer_tools.py",
+    "bytes": 14910,
+    "sha256": "f2d87dfd8e624b2d487d78f1786f4afc91741da0f9a83f0b5b919d15c0dee73d"
+  },
+  {
+    "path": "app/integrations/movio_friendly_weather.py",
+    "bytes": 33739,
+    "sha256": "5d2b5fa73367c2cf26886a7b00c9ebe8219cff94ce0f961f92b8af6ccf45c653"
+  },
+  {
+    "path": "app/integrations/movio_group_booking_slots.py",
+    "bytes": 23040,
+    "sha256": "e0ab45196a3c3aa6c72adaff7e454352bd1ac1df0367cbd4f7ded41185b4dbf7"
+  },
+  {
+    "path": "app/integrations/movio_optional_weather.py",
+    "bytes": 21428,
+    "sha256": "a1ba9d9d88799e0215c5b926cd11a444a201a443f6626cf21ae9538659d54042"
+  },
+  {
+    "path": "app/integrations/movio_original_tts_adapter.py",
+    "bytes": 1716,
+    "sha256": "4c5f2061b9f5eb1c61a9ccd8dead795644a39d921186d1bef32d363d0be38601"
+  },
+  {
+    "path": "app/integrations/movio_required_weather.py",
+    "bytes": 16308,
+    "sha256": "0506b8f43f455d57def44309aa6c6e289bc594eccff712a3f9b3759c1883071a"
+  },
+  {
+    "path": "app/integrations/movio_tanglish_speech_quality.py",
+    "bytes": 9462,
+    "sha256": "bae4a44349054f89930668dc73c319f2415f9f978021cd49feb3f1d8021228ec"
+  },
+  {
+    "path": "app/integrations/movio_time_route.py",
+    "bytes": 13582,
+    "sha256": "2775a29b28545b7cc330724689d072e063174efb834eb1d4efe807a509e28cd4"
+  },
+  {
+    "path": "app/integrations/movio_weather_guard.py",
+    "bytes": 97671,
+    "sha256": "d1fd3ae90f6bfcbc078b09f9b6edc21c2d6f08362ce0244ccc5aa6f45a2f1bcd"
+  },
+  {
+    "path": "app/integrations/test_weather_guard.py",
+    "bytes": 62203,
+    "sha256": "6181b7671435985692e574398334a5f8054ca2c6ff7d946c8841eddcbbdec64c"
+  },
+  {
+    "path": "app/integrations/weather_call_page.html",
+    "bytes": 57828,
+    "sha256": "723c6959c972c63fb85b59180a9935ae299e970cfa980331dcfacea3a5c2058a"
+  },
+  {
+    "path": "app/package_version.json",
+    "bytes": 113,
+    "sha256": "4ef0028ced9d4454b5167cdd37d6e950ea2e46766b6e11a835f3aaca432d113a"
+  },
+  {
+    "path": "app/server.py",
+    "bytes": 35739,
+    "sha256": "a43d157b626619940b697853acaf45751c6816649b224cec30184f7e53cd26a8"
+  },
+  {
+    "path": "app/tests/test_workflow.py",
+    "bytes": 8083,
+    "sha256": "73b3b02b8649e236c78a0d28172a8eb60c9ebaed7ac2dfafb4f52c59def78c02"
+  },
+  {
+    "path": "app/web/app.js",
+    "bytes": 21632,
+    "sha256": "a7d31f99eacfd26da330e320d9558e8ebe63f3962068e2976ae108bfb1b292ec"
+  },
+  {
+    "path": "app/web/auth.js",
+    "bytes": 2218,
+    "sha256": "7ddc2e206a307f0688f2f1dacb3544e9ed924c54d61140387f0c50af859fda7e"
+  },
+  {
+    "path": "app/web/customer_booking_tools.css",
+    "bytes": 4754,
+    "sha256": "14428b3cf6c331727f7bb9bde7434436fa2417e5b7369eeafe60b83dce71a93f"
+  },
+  {
+    "path": "app/web/customer_booking_tools.js",
+    "bytes": 21506,
+    "sha256": "d2cd1b9e878867e848afbc32cd77027bd5ff645dad3483809ec76bbd38224740"
+  },
+  {
+    "path": "app/web/customer_care_companion.css",
+    "bytes": 2953,
+    "sha256": "50cd4edf7e153a398f50ae287bf23e68de9243c74669b4d50b2ca91c45e91bd4"
+  },
+  {
+    "path": "app/web/customer_care_companion.js",
+    "bytes": 13901,
+    "sha256": "f67e20797e5d28349ecb4eb1297ee8e289f03434cbeb50ddb9132fedd8f12c65"
+  },
+  {
+    "path": "app/web/dashboard_priority.css",
+    "bytes": 2836,
+    "sha256": "b99ba0b37c3db2ee5092322ce043fdfe537cffa1a72c851bc875f3271ef4ee08"
+  },
+  {
+    "path": "app/web/dashboard_priority.js",
+    "bytes": 6313,
+    "sha256": "d12b8c2647f3594816d61623576ff0daae6d6d20f5227c482c396f14d5d6ab2c"
+  },
+  {
+    "path": "app/web/driver_dashboard.css",
+    "bytes": 3873,
+    "sha256": "7ca87dff67a3b3d551a29e559b0a960c9b373a3ffe73632677b7229c4db0bba5"
+  },
+  {
+    "path": "app/web/driver_dashboard.js",
+    "bytes": 4698,
+    "sha256": "015925b2f35cdc5ec55217034988b111f0fe4f35c5ef32ca967fd78b732ca0d5"
+  },
+  {
+    "path": "app/web/index.html",
+    "bytes": 12333,
+    "sha256": "4575bfb38e60b6c08f5702e90f49755d71698f728978c964b22c59ba867633b5"
+  },
+  {
+    "path": "app/web/live_map_motion.js",
+    "bytes": 5170,
+    "sha256": "c1defb1f63db021a7b3f9335f72311cdb23818846fca936e2884bdc568a3c18e"
+  },
+  {
+    "path": "app/web/live_tracking.js",
+    "bytes": 6215,
+    "sha256": "f87635874b594eaf2f4a421ed3eb0cfc63d94f56bbbcff171b88c1be37498c88"
+  },
+  {
+    "path": "app/web/manifest.json",
+    "bytes": 196,
+    "sha256": "b5f3f6c55ff0ef7817fa4c44e0d972037337d723c686abe59d27c2b0a4684a8f"
+  },
+  {
+    "path": "app/web/movio_companion_debug.js",
+    "bytes": 1259,
+    "sha256": "2ea72d76a2d0899d23ccf71781e8d38bb109fb324f6dd2e9da2756d558cd8e3e"
+  },
+  {
+    "path": "app/web/movio_customer_dashboard.css",
+    "bytes": 11786,
+    "sha256": "40e1f62de906109885373d90635c28f173bcc7571f6f901d267c7ae2fc2f1dbd"
+  },
+  {
+    "path": "app/web/movio_driver_upcoming.js",
+    "bytes": 2446,
+    "sha256": "d90ac7a5e0c4a6b666f7592b90a18af29f2a6b92cc6907775bdcf50b255e94b5"
+  },
+  {
+    "path": "app/web/movio_enhancements.js",
+    "bytes": 10577,
+    "sha256": "f9e6a9552e09f66f3fcfe5865aed63abc4d8934e9d55839b93d64e34511f4e4e"
+  },
+  {
+    "path": "app/web/movio_forecast_listen.js",
+    "bytes": 10141,
+    "sha256": "a0f35c425212b97a6265855f0130924929d5b74edab074da341337610c06bcaa"
+  },
+  {
+    "path": "app/web/movio_saved_booking_fix.js",
+    "bytes": 3850,
+    "sha256": "2aa0e05f810d60314721ab6ab99b9355bae79f5db69990034f02a84b06cbda37"
+  },
+  {
+    "path": "app/web/styles.css",
+    "bytes": 10793,
+    "sha256": "8ee96d56faaa8fb832c6abaf3892f0efa89bb4ea4f878c94695193a97e77c56c"
+  },
+  {
+    "path": "app/web/weather_dashboard.js",
+    "bytes": 2534,
+    "sha256": "b0c8c6b7e02143c6ed4879349230508e7eab997ea8ae4c60610602018725741c"
+  },
+  {
+    "path": "app/web/weather_manual.js",
+    "bytes": 30559,
+    "sha256": "b90da1336e3de64422e9516e5a84792f082df2b4409f0296c9a87b10040798ff"
+  },
+  {
+    "path": "assets/references/english_reference_16k.wav",
+    "bytes": 870990,
+    "sha256": "4831f04638d8e29e9e596262ab31743ee8be194c7e38a57841d3c6c0cac7b029"
+  },
+  {
+    "path": "assets/references/tamil_reference.wav",
+    "bytes": 718926,
+    "sha256": "66b42d93d4874bebe2c0c2f9bca66d0ee2986d7814a5b5fcc8351edb98b8911b"
+  },
+  {
+    "path": "docs/CONSOLIDATION.md",
+    "bytes": 3660,
+    "sha256": "235fd588459f224b5f36808e65c56d498658cf1f2b9d34038403d00b5d8bb2b7"
+  },
+  {
+    "path": "docs/LEGACY_TEST_RESULTS.json",
+    "bytes": 571,
+    "sha256": "de3a6a6411765a8d460aa35516932e775ff85c5e5938728ec6a19595bfd64d5f"
+  },
+  {
+    "path": "docs/MERGE_MAP.json",
+    "bytes": 11667,
+    "sha256": "56a18049aeeab136b5f7c9fec5396606861fc43cc5038a751f6179299187518e"
+  },
+  {
+    "path": "docs/SOURCE_MAP.json",
+    "bytes": 2462,
+    "sha256": "6499c384d684a98ed71356a8dbf79330fde65657146eebe660ef313bd2078440"
+  },
+  {
+    "path": "docs/VALIDATION.md",
+    "bytes": 3518,
+    "sha256": "0f12484be140d4f85f6998bf582e3fa470d3036bd24168705b6bf0cf7a3117bb"
+  },
+  {
+    "path": "pipeline.py",
+    "bytes": 4673,
+    "sha256": "5d5598a2066ecb5878d71451adb583946f8360523fcb6b6ef4ce7f7d85c4e82a"
+  },
+  {
+    "path": "requirements.txt",
+    "bytes": 418,
+    "sha256": "9e67bf12fbb486e142127a4b9558ccf380f70f24bfd8423b41e7c0d178454d60"
+  },
+  {
+    "path": "runtime/speech_adapters.py",
+    "bytes": 26869,
+    "sha256": "5cb92eaef7009ff6129944707f55860a4b8949744b47a0a21b1ddfead88a17e4"
+  },
+  {
+    "path": "runtime/stages/01_models.py",
+    "bytes": 13572,
+    "sha256": "b7c1eac2cba05d15060213342af4660ff3dcd826cc1ed6166bbbc54c34f1a695"
+  },
+  {
+    "path": "runtime/stages/02_speech.py",
+    "bytes": 152366,
+    "sha256": "ded9d337bf21db022ade6640018d0bbb5e450ada3c94e168a4514fdd5be68a4d"
+  },
+  {
+    "path": "runtime/stages/03_voice_configuration.py",
+    "bytes": 10763,
+    "sha256": "78daf4a4d70a58bbb8ed4a31122e88cd18edeb92232867c615cbce1c23898a91"
+  },
+  {
+    "path": "runtime/stages/04_weather_voice_binding.py",
+    "bytes": 4970,
+    "sha256": "fca33666d68df115b79e4eec3b56fd850e66bf90fe313cb632339c2363dc5852"
+  },
+  {
+    "path": "runtime/stages/05_forecast_voice.py",
+    "bytes": 30304,
+    "sha256": "49bbbf71cc0250ba2ad44a3d44a9b1601faa0b6b16b08f08cd45d509636b4472"
+  },
+  {
+    "path": "runtime/stages/06_services.py",
+    "bytes": 7845,
+    "sha256": "bfa85b1b638248ceff821ebcd8c58cd5a5de42c1de06cbe76f8201fb5fc61a89"
+  },
+  {
+    "path": "scripts/check_backend_http.py",
+    "bytes": 8805,
+    "sha256": "11b470ae7722ab56eafce526600aef1811d37c0bd07924bbcb5d4d288f5fe732"
+  },
+  {
+    "path": "scripts/check_repository.py",
+    "bytes": 4821,
+    "sha256": "23ea7d35ae97e5f9a2bdc4c954fb9b2e44dea39bae2ab670f23c63101ae642c1"
+  },
+  {
+    "path": "scripts/check_runtime_binding.py",
+    "bytes": 4506,
+    "sha256": "8208b2898e5c4edff2507d26a1bc92bc9a086fb1100879832555cd170c5d03a2"
+  },
+  {
+    "path": "scripts/check_text_preparation.py",
+    "bytes": 1577,
+    "sha256": "e8d79956390598abff49972e50c007fb2b2a1b10603094af0a96a2dfc0070028"
+  },
+  {
+    "path": "scripts/component_fixtures.py",
+    "bytes": 20107,
+    "sha256": "5c101742e78d1d108cb7843eb1b2e078f0a3a6fb6d6718e36cf14d2f67295340"
+  },
+  {
+    "path": "scripts/run_component_checks.py",
+    "bytes": 2024,
+    "sha256": "06d1ebdbecd991be378994efe2a83e3f2353c819a8caa9eab42c1695952b882c"
+  },
+  {
+    "path": "tests/fixtures/care_api.py",
+    "bytes": 10328,
+    "sha256": "fbdb6c5109a79abc712732c2d0a82aeb26462a0321da805aa61611a56f000e89"
+  },
+  {
+    "path": "tests/fixtures/care_api_checks.py",
+    "bytes": 6979,
+    "sha256": "d5c6bea2861ff0658d9e41acdfd4e8aac02348410d7155b4fe310773111b8069"
+  },
+  {
+    "path": "tests/fixtures/care_engine.py",
+    "bytes": 42613,
+    "sha256": "e469bcbc310630edecf8e0550958a9429598fb5411786890c0d4b59483e48a31"
+  },
+  {
+    "path": "tests/fixtures/care_engine_checks.py",
+    "bytes": 13042,
+    "sha256": "e6cc4a7c3c78e13f5f7ef600d0c0e79d1bc1197b5db962879e328fe6cdc6730f"
+  }
+]

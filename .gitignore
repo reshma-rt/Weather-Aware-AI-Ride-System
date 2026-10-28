@@ -1,0 +1,38 @@
+# Credentials and local settings
+.env
+.env.*
+!.env.example
+*token*.txt
+# Runtime data, recordings and model downloads
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.log
+*.csv
+*.zip
+*.safetensors
+*.pt
+*.pth
+*.bin
+.cache/
+huggingface_cache/
+MOVIO_MAIN_WEBSITE/
+MOVIO_TTS/
+outputs/
+backups/
+*backup*/
+*BACKUP*/
+*.bak
+# Python, notebook state and editor files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+node_modules/
+.DS_Store
+
+# Recording metadata
+!Movio_Custom_Recordings/**/*.csv

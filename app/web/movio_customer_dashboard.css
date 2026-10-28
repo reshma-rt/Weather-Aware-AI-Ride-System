@@ -1,0 +1,127 @@
+/* MOVIO_CUSTOMER_UI_V1 — existing controls and handlers are retained. */
+#riderPanel{width:460px;min-width:0;max-width:50vw;padding:24px;background:#fff;overflow-x:visible}
+#riderPanel *,#riderPanel *::before,#riderPanel *::after{box-sizing:border-box;min-width:0}
+#riderPanel button,#riderPanel input,#riderPanel select{font-family:inherit}
+#riderPanel button{touch-action:manipulation}
+#riderPanel button:focus-visible,#riderPanel input:focus-visible,#riderPanel select:focus-visible,#riderPanel summary:focus-visible{outline:3px solid #d69b00;outline-offset:3px}
+#riderPanel .inputs input{font-size:16px}
+#riderPanel .inputs label{height:54px}
+#riderPanel .section-row{gap:12px;flex-wrap:wrap}
+#riderPanel .section-row h2{line-height:1.4}
+#riderPanel .vehicles{display:grid;grid-template-columns:1fr;gap:8px}
+#riderPanel .vehicle{min-height:64px;padding:11px 14px;gap:12px}
+#riderPanel .vehicle b{font-size:14px}
+#riderPanel .vehicle small{font-size:12px}
+#riderPanel .vehicle strong{font-size:15px;flex-shrink:0}
+#riderPanel .movio-address-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px!important}
+#riderPanel .movio-address-actions button{width:100%;min-height:44px;white-space:normal;line-height:1.4;font-size:12px;padding:10px}
+#riderPanel .actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:8px}
+#riderPanel .actions>button{width:100%;min-height:46px;white-space:normal;line-height:1.4;justify-content:center;font-size:13px}
+#riderPanel .movio-voice-actions{grid-template-columns:minmax(0,1fr) 48px;margin:10px 0 16px}
+#riderPanel .movio-voice-actions #aiCall{background:#fff;border:1px solid #dcdfe4;color:#20242a;border-radius:12px;font-size:14px;min-height:48px;padding:12px}
+#riderPanel .movio-voice-actions #voiceBook{width:48px;min-height:48px;border-radius:12px;font-size:20px}
+#riderPanel .gps-card{flex-wrap:wrap}
+#riderPanel .gps-card>div{flex:1 1 190px}
+#riderPanel .gps-card button{white-space:normal;min-height:44px;line-height:1.4}
+#riderPanel .tts-controls{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+#riderPanel .tts-controls select,#riderPanel .tts-controls button{width:100%;font-size:14px;min-height:44px;white-space:normal}
+#riderPanel .booking-choice select{max-width:100%;font-size:14px}
+#riderPanel .priority-trip{padding:18px!important}
+#riderPanel .priority-trip #riderStatus{max-width:100%;font-size:11px}
+#riderPanel .ride-card{overflow-wrap:anywhere}
+#riderPanel #aiRideHistory,#riderPanel #weatherScheduledRides{display:grid;gap:10px}
+#riderPanel #aiRideHistory .ride-card{display:flex;flex-direction:column;padding:15px;background:#fff}
+#riderPanel #aiRideHistory .ride-card h3{font-size:14px;line-height:1.5}
+#riderPanel #aiRideHistory .ride-card p{line-height:1.6}
+#riderPanel .movio-card-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding-top:12px;margin-top:auto}
+#riderPanel .movio-card-actions>button{width:100%;min-height:44px;margin:0;white-space:normal;line-height:1.4;font-size:13px}
+#riderPanel .movio-card-actions>button:only-child{grid-column:1/-1}
+#weatherManual{width:100%;margin:18px 0 0;padding:18px;border:1px solid #e4e6ea;border-radius:18px;background:#fafbfC;box-shadow:none;flex:none}
+#weatherManual .wx-form-heading{font-size:15px;margin:0 0 15px;color:#20242a;line-height:1.5}
+#weatherManual .wx-field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px}
+#weatherManual .wx-field{display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:700;color:#4f5661;line-height:1.5}
+#weatherManual input,#weatherManual select{display:block;width:100%;max-width:100%;min-height:46px;padding:11px 10px;border:1px solid #d9dde3;border-radius:10px;background:#fff;color:#20242a;font-size:16px;font-weight:500;line-height:1.2;box-shadow:none;color-scheme:light}
+#weatherManual input:disabled,#weatherManual select:disabled{background:#eff1f4;color:#657080;opacity:.75}
+#weatherManual .wx-schedule{min-width:0;padding:0;margin:16px 0 0;border:0}
+#weatherManual .wx-schedule legend{padding:0;font-size:12px;font-weight:700;color:#4f5661;margin-bottom:8px}
+#weatherManual .wx-day-shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:12px}
+#weatherManual .wx-day-shortcuts button{width:100%;border:1px solid #d9dde3;border-radius:999px;background:#fff;color:#4b535f;font-size:12px;min-height:36px;padding:7px 14px;font-weight:700;flex:none;white-space:normal}
+#weatherManual .wx-day-shortcuts button[aria-pressed=true]{border-color:#e6b633;background:#fff3ca;color:#684900}
+#weatherManual #wxManualDate[hidden]{display:none!important}
+#weatherManual #wxPreviewAction{margin-top:18px}
+#riderPanel #bookRide{display:flex;width:100%;height:auto;min-height:50px;align-items:center;justify-content:center;white-space:normal;line-height:1.4;font-size:15px;padding:13px 16px;background:#1c222b;color:#fff;border:0;border-radius:12px;flex:none}
+#weatherManual #wxManualStatus{font-size:12px;line-height:1.6;color:#55606e;white-space:normal;margin:10px 0 0;overflow-wrap:anywhere}
+#weatherManual #wxManualStatus:empty{display:none}
+#weatherManual #wxManualReview{margin-top:16px}
+#weatherManual #wxManualReview[hidden]{display:none!important}
+#weatherManual .wx-review-panel{padding:15px;border:1px solid #e0e6e9;border-radius:14px;background:#fff}
+#weatherManual .wx-review-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+#weatherManual #wxWeatherTitle{font-size:14px;line-height:1.5;margin:0;color:#28313d}
+#weatherManual .wx-condition{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:11px;line-height:1.5;font-weight:700;background:#eaf0f6;color:#3f566f;border-radius:8px;padding:5px 8px}
+#weatherManual .wx-condition[data-tone=rain]{background:#e8f1fb;color:#235582}
+#weatherManual .wx-condition[data-tone=heat]{background:#fff0d9;color:#865500}
+#weatherManual .wx-condition[data-tone=clear]{background:#eef6ed;color:#38623a}
+#weatherManual .wx-rain-label{font-size:11px;color:#657080;margin:0 0 7px}
+#weatherManual .wx-weather-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+#weatherManual .wx-point{padding:12px 10px;border-radius:11px;background:#f5f7fa;display:grid;gap:5px;align-content:start}
+#weatherManual .wx-point-label{color:#657080;font-size:11px;line-height:1.4}
+#weatherManual .wx-place{display:block;color:#303a46;font-size:12px;font-weight:600;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#weatherManual .wx-probability{font-size:25px;letter-spacing:-.5px;line-height:1.3;color:#1e334b}
+#weatherManual .wx-probability[data-missing=true]{font-size:14px;line-height:2.3;letter-spacing:0;color:#697582}
+#weatherManual .wx-tip{font-size:12px;color:#405165;background:#f0f4f9;border-radius:9px;padding:10px 11px;line-height:1.6;margin:11px 0 0}
+#weatherManual .wx-tip:empty{display:none}
+#weatherManual .wx-trip-panel{margin-top:12px;padding-top:12px;border-top:1px solid #e7eaee}
+#weatherManual .wx-route-row{display:grid;grid-template-columns:64px minmax(0,1fr);align-items:baseline;gap:8px;font-size:12px;line-height:1.6;margin:5px 0}
+#weatherManual .wx-route-row>span:first-child{color:#657080;font-size:11px}
+#weatherManual .wx-trip-date{font-size:12px;color:#4a5664;line-height:1.6;margin:10px 0}
+#weatherManual .wx-trip-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+#weatherManual .wx-trip-facts>div{display:grid;gap:3px;border-radius:9px;background:#f5f7fa;padding:10px}
+#weatherManual .wx-trip-facts small{font-size:11px;color:#657080;line-height:1.4}
+#weatherManual .wx-trip-facts strong{font-size:14px;color:#26313e;line-height:1.5}
+#weatherManual .wx-review-actions{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);grid-auto-rows:minmax(52px,auto);gap:8px;margin-top:14px}
+#weatherManual .wx-review-actions button{min-height:52px;height:auto;width:100%;font-size:13px;padding:11px 9px;line-height:1.5;white-space:normal;border-radius:11px;font-weight:700;justify-content:center;align-items:center;display:flex;flex:none}
+#weatherManual #wxManualContinue{border:1px solid #1c222b;background:#1c222b;color:#fff}
+#weatherManual #wxManualChange{border:1px solid #d9dde3;background:#fff;color:#354153}
+#weatherManual .wx-details{margin:12px 0 0;font-size:12px;color:#576372}
+#weatherManual .wx-details>summary{cursor:pointer;padding:7px 0;min-height:32px;color:#4b596a;font-weight:600;line-height:1.5}
+#weatherManual .wx-details p{font-size:12px;line-height:1.7;color:#576372;white-space:pre-line!important;overflow-wrap:anywhere;margin:7px 0}
+#weatherManual .wx-source{display:flex;justify-content:flex-end;align-items:center;gap:6px;font-size:10px;color:#718092;margin:10px 0 0;line-height:1.5}
+#weatherManual .wx-source a{color:#546779;text-decoration:underline;text-underline-offset:2px}
+#riderPanel [hidden]{display:none!important}
+@media(min-width:901px){
+ #appShell:has(#riderPanel:not(.hidden)){height:100dvh;min-height:520px}
+ #appShell:has(#riderPanel:not(.hidden)) .workspace{display:flex;min-height:0;overflow:hidden}
+ #appShell:has(#riderPanel:not(.hidden)) .map-area{min-width:0;flex:1;height:auto;order:0}
+ #riderPanel{position:relative;bottom:auto;left:auto;right:auto;order:-1;max-height:none;flex:0 0 min(460px,47vw);width:min(460px,47vw);overflow-y:auto;overscroll-behavior:contain;border-radius:0;min-width:0}
+}
+@media(max-width:900px){
+ #appShell:has(#riderPanel:not(.hidden)){height:auto;min-height:100dvh;max-width:100%}
+ #appShell:has(#riderPanel:not(.hidden)) .top{height:auto;min-height:60px;flex:none;padding:12px 16px;gap:12px;flex-wrap:wrap}
+ #appShell:has(#riderPanel:not(.hidden)) .account-top{min-width:0;max-width:100%;gap:8px}
+ #appShell:has(#riderPanel:not(.hidden)) #accountLabel{max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ #appShell:has(#riderPanel:not(.hidden)) #logout{min-height:36px;padding:8px 12px}
+ #appShell:has(#riderPanel:not(.hidden)) .workspace{display:flex;flex-direction:column;overflow:visible;flex:none;min-width:0}
+ #appShell:has(#riderPanel:not(.hidden)) .map-area{width:100%;height:250px;min-height:210px;flex:none;order:-1}
+ #appShell:has(#riderPanel:not(.hidden)) .map-tools{right:14px;top:15px}
+ #appShell:has(#riderPanel:not(.hidden)) .live-pill{top:15px;bottom:auto;left:14px;max-width:calc(100% - 80px);font-size:10px}
+ #riderPanel.sheet,#riderPanel.sheet.priority-panel{position:relative;bottom:auto;left:auto;right:auto;width:100%;max-width:none;min-width:0;max-height:none!important;overflow:visible;order:0;margin:0;padding:20px 16px max(28px,env(safe-area-inset-bottom))!important;border-radius:0;box-shadow:none}
+ #riderPanel .handle{display:none}
+ #riderPanel .sheet-head h1{font-size:28px}
+ #riderPanel .vehicles{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #riderPanel .vehicle{flex-wrap:wrap;min-height:82px;padding:10px;gap:7px}
+ #riderPanel .vehicle>span:first-child{font-size:22px}
+ #riderPanel .vehicle>span:nth-child(2){flex:1}
+ #riderPanel .vehicle strong{margin-left:auto;font-size:14px}
+ #riderPanel .vehicle small{font-size:10px}
+ #riderPanel .priority-trip{margin:0 0 24px!important}
+ #riderPanel .priority-driver{flex-wrap:wrap}
+}
+@media(max-width:374px){
+ #riderPanel.sheet,#riderPanel.sheet.priority-panel{padding-left:12px!important;padding-right:12px!important}
+ #weatherManual{padding:13px}
+ #weatherManual .wx-review-panel{padding:11px}
+ #weatherManual .wx-field-grid{gap:12px 8px}
+ #weatherManual .wx-schedule>.wx-field-grid{grid-template-columns:minmax(0,1fr)}
+ #weatherManual input,#weatherManual select{padding-left:6px;padding-right:6px}
+ #appShell:has(#riderPanel:not(.hidden)) #accountLabel{max-width:140px}
+}

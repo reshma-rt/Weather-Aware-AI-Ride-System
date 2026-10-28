@@ -1,0 +1,26 @@
+# Compatibility pins taken from the supplied notebook.
+# Keep Kaggle's matching torch/torchaudio pair; do not reinstall CUDA mid-session.
+transformers==4.57.1
+huggingface_hub==0.36.0
+tokenizers==0.22.1
+accelerate
+bitsandbytes
+vocos
+encodec
+librosa
+soundfile
+numpy<3
+pandas
+scipy
+fastapi>=0.110,<1
+uvicorn[standard]>=0.27,<1
+httpx>=0.27,<1
+websockets
+python-multipart
+pyngrok
+requests
+av
+psutil
+pytest
+nbformat
+ipython

@@ -1,0 +1,8 @@
+{
+  "version": 5,
+  "features": [
+    "vehicle_matching",
+    "ride_scoped_consent",
+    "live_google_map"
+  ]
+}

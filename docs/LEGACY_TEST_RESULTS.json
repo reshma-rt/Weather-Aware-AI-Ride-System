@@ -1,0 +1,12 @@
+{
+  "passed": false,
+  "tests_run": 98,
+  "failures": 19,
+  "errors": 4,
+  "scope": "Supplied legacy test_weather_guard.py run directly against exported modules with all advanced bootstraps enabled. Not the isolated core guard run.",
+  "notes": [
+    "Some assertions expect older weather wording/status/consent behaviour.",
+    "Socket fixtures also time out and report database cleanup errors during cancellation.",
+    "These failures have not been treated as proof that the assembled live system passes; full review and browser/GPU validation remain required."
+  ]
+}

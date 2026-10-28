@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Ride Call</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0e1525;color:#eef2ff;font:16px system-ui;display:grid;place-items:center;min-height:100vh}.phone{width:min(580px,96vw);padding:24px;background:#19253c;border-radius:25px;margin:16px auto}h2{margin:4px 0 10px}.hint{color:#b9c8e2;font-size:13px;line-height:1.5}button,input,select{padding:12px;border:0;border-radius:10px;font:inherit}button{cursor:pointer;background:#178d61;color:white}button:disabled{opacity:.45;cursor:default}select,input{background:#344660;color:white;max-width:100%}.row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.row>*{flex:1}#status,#weather{padding:12px;background:#273953;border-radius:12px;margin:12px 0;line-height:1.5}#weather{display:none}#log{height:260px;overflow:auto;background:#10192a;border-radius:12px;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.you{color:#b2f5bf}.ai{color:#9fd2ff}.error{color:#ffc6a8}#interrupt{background:#996518}#hang{background:#b94150}#manual{width:100%;margin-top:10px}a{color:#b9d9ff}#readSummary{display:none;background:#344660}
+</style><!-- MOVIO_CALL_THEME_STYLE_BEGIN --><style id="movioCallTheme">
+/* MOVIO_CALL_THEME_V1 */
+:root{--call-ink:#1c222b;--call-muted:#68727e;--call-line:#e3e6eb;--call-yellow:#ffcc29}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 16px;background:#f5f5f3;color:var(--call-ink);font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:15px;display:block;min-height:100vh;min-height:100dvh}
+.phone{width:100%;max-width:660px;min-width:0;margin:0 auto;padding:26px;background:#fff;border:1px solid var(--call-line);border-radius:24px;box-shadow:0 10px 36px #1c222b08}
+.phone *{min-width:0}
+.movio-call-brand{display:flex;align-items:center;gap:12px;margin:0 0 10px}
+.movio-call-mark{display:block;text-align:center;flex:none;width:38px;height:38px;line-height:38px;border-radius:13px;background:var(--call-yellow);color:#17191d;font-size:22px;font-weight:800;letter-spacing:-1px}
+.phone h2{flex:1;font-size:23px;font-weight:800;letter-spacing:-.6px;line-height:1.35;margin:0;color:var(--call-ink)}
+.phone .hint{font-size:12px;line-height:1.65;color:var(--call-muted);margin:10px 0 17px;overflow-wrap:anywhere}
+.phone button,.phone input,.phone select{font-family:inherit;max-width:100%;border-radius:12px;font-size:14px;line-height:1.5}
+.phone button{min-height:46px;padding:12px 14px;border:1px solid var(--call-line);background:#fff;color:var(--call-ink);font-weight:700;cursor:pointer;white-space:normal;touch-action:manipulation}
+.phone button:hover:not(:disabled){filter:brightness(.98)}
+.phone button:disabled{opacity:.5;cursor:not-allowed}
+.phone button:focus-visible,.phone select:focus-visible,.phone input:focus-visible{outline:3px solid #d59d00;outline-offset:3px}
+.phone select,.phone input{width:100%;min-height:48px;padding:12px;border:1px solid #d9dde3;background:#fff;color:var(--call-ink);font-size:16px;font-weight:400;box-shadow:none;color-scheme:light}
+.movio-call-language{display:grid;gap:7px;margin:16px 0 14px;font-size:12px;font-weight:700;color:#535e6b}
+.phone .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0;align-items:stretch}
+.phone .row>*{min-width:0;flex:none}
+.phone .row>button{width:100%}
+.phone .movio-call-modes{gap:10px;grid-auto-rows:minmax(64px,auto);margin-bottom:6px}
+.phone .movio-call-modes button{position:relative;min-height:64px;padding:13px 30px 13px 12px;border:1px solid #d9dde3;background:#fff;color:#657080;line-height:1.5;font-size:14px;text-align:left}
+.phone #bookMode[aria-pressed=true]{background:#fff3c4;border:2px solid #dfb12c;color:#624800;padding:12px 29px 12px 11px}
+.phone #cancelMode[aria-pressed=true]{background:#fff0eb;border:2px solid #de9e86;color:#823f2d;padding:12px 29px 12px 11px}
+.phone .movio-call-modes button[aria-pressed=true]::after{content:'✓';position:absolute;right:11px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:800}
+.phone .movio-call-modes button[aria-pressed=true]:disabled{opacity:1;cursor:default}
+.movio-call-selected{margin:0 0 17px;font-size:12px;color:#657080;line-height:1.5}
+.phone .movio-call-actions{margin-top:10px;grid-auto-rows:minmax(70px,auto)}
+.phone #call{display:block;width:100%;min-height:50px;margin:0;background:var(--call-ink);color:#fff;border:1px solid var(--call-ink);font-size:15px}
+.phone #interrupt{background:#fff9e8;border:1px solid #eedca1;color:#755721}
+.phone #hang{background:#fff2ee;border:1px solid #ecd4cd;color:#954c3b}
+.phone #status,.phone #weather{padding:12px 14px;margin:15px 0;background:#f4f6f9;border:1px solid #e8ebef;color:#405165;border-radius:12px;font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+.phone #rides{white-space:pre-line;font-size:13px;line-height:1.65;color:#465364;background:#fafbfc;border-radius:12px;padding:12px;margin:12px 0;border:1px solid #e8ebef;overflow-wrap:anywhere}
+.phone #rides:empty{display:none}
+.phone #log{height:300px;height:clamp(220px,36dvh,350px);overflow:auto;overscroll-behavior:contain;background:#fafbfc;border:1px solid #e5e8ec;border-radius:15px;padding:13px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7;font-size:14px;color:#303b49}
+.phone #log:empty::before{content:attr(data-empty-label);display:block;color:#78838f;font-size:13px;padding:6px}
+.phone #log>div{padding:10px 12px;border-radius:12px;margin:0 0 10px}
+.phone #log>div:last-child{margin-bottom:0}
+.phone #log .you{background:#fff3c8;border:1px solid #f3e4b6;color:#56471f;margin-left:18px}
+.phone #log .ai{background:#fff;border:1px solid #e2e7ec;color:#2c3b4d;margin-right:18px}
+.phone #log .error{background:#fff1ec;border:1px solid #f0dcd3;color:#8d4430}
+.phone #manual{margin-top:14px;width:100%;background:#fff;color:var(--call-ink)}
+.phone #send{background:var(--call-ink);border-color:var(--call-ink);color:white}
+.phone #readSummary{background:#f4f6f9;border:1px solid #dce2e8;color:#405165}
+.phone .movio-call-replies{display:flex;flex-wrap:wrap}
+.phone .movio-call-replies>button{flex:1 1 170px;width:auto}
+.phone a{color:#785900;text-decoration:underline;text-underline-offset:3px}
+.phone>.hint:last-child{font-size:11px;margin:16px 0 0;color:#75808c}
+@media(max-width:480px){body{padding:12px}.phone{padding:18px 15px;border-radius:19px}.phone h2{font-size:21px}.phone .movio-call-modes button{font-size:13px}.phone .row{gap:8px}.phone button{padding:11px 10px;font-size:13px}.phone #log{font-size:13px}.phone #log .ai{margin-right:8px}.phone #log .you{margin-left:8px}}
+@media(max-width:360px){.phone .movio-call-modes,.phone .movio-call-actions{grid-template-columns:minmax(0,1fr);grid-auto-rows:minmax(48px,auto)}.phone .movio-call-modes button{min-height:48px}}
+@media(prefers-reduced-motion:reduce){.phone *{scroll-behavior:auto!important}}
+</style><!-- MOVIO_CALL_THEME_STYLE_END --><!-- MOVIO_CALL_WEATHER_STYLE_BEGIN --><style id="movioCallWeatherStyle">/* MOVIO_CALL_WEATHER_POPUP_V1: non-modal; no backdrop or microphone changes. */
+.phone #movioCallWeather[hidden],.phone #movioWeatherTab[hidden]{display:none!important}
+.phone #movioCallWeather{position:fixed;z-index:90;inset:auto 14px auto auto;top:max(12px,env(safe-area-inset-top));width:min(352px,calc(100vw - 28px));max-height:min(310px,42vh);max-height:min(310px,42dvh);display:flex;flex-direction:column;margin:0;padding:0;background:#fff;color:#263443;border:1px solid #e1e6ec;border-radius:18px;box-shadow:0 14px 44px #24364a24;white-space:normal;font-family:inherit;overflow:hidden;isolation:isolate}
+#movioCallWeather *{box-sizing:border-box;min-width:0}
+#movioCallWeather .movio-wx-header{display:flex;align-items:center;gap:9px;padding:11px 13px 9px;border-bottom:1px solid #edf0f4;flex:none;background:#fffdf6}
+#movioCallWeather .movio-wx-heading{margin:0;font-size:14px;font-weight:750;line-height:1.4;flex:1}
+#movioCallWeather .movio-wx-dot{width:8px;height:8px;border-radius:50%;background:#e2ad1c;box-shadow:0 0 0 4px #fff0bc;flex:none;margin:0 3px}
+.phone #movioCallWeather .movio-wx-minimize{display:grid;place-items:center;flex:none;width:34px;height:34px;min-height:34px;padding:0;border:1px solid #e2e7ec;border-radius:10px;background:#fff;color:#526171;font:23px/1 system-ui;cursor:pointer}
+#movioCallWeather .movio-wx-content{overflow:auto;overscroll-behavior:contain;padding:10px 12px 12px;min-height:0}
+#movioCallWeather .movio-wx-subtitle{margin:0 0 8px;color:#7b8794;font-size:10px;line-height:1.45}
+#movioCallWeather .movio-wx-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+#movioCallWeather .movio-wx-point{padding:9px 10px;background:#f6f8fb;border:1px solid #e8edf3;border-radius:12px;min-width:0}
+#movioCallWeather .movio-wx-role{font-size:9px;line-height:1.5;font-weight:750;color:#748292;text-transform:uppercase;letter-spacing:.035em}
+#movioCallWeather .movio-wx-place{font-size:12px;line-height:1.4;font-weight:700;margin:2px 0 7px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#movioCallWeather .movio-wx-main{display:flex;align-items:center;justify-content:space-between;gap:4px}
+#movioCallWeather .movio-wx-icon{display:flex;flex:none;width:30px;height:30px;color:#68819b}
+#movioCallWeather .movio-wx-icon svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+#movioCallWeather .movio-wx-temperature{font-size:24px;line-height:1.25;font-weight:750;letter-spacing:-.7px;white-space:nowrap}
+#movioCallWeather .movio-wx-temperature small{font-size:11px;letter-spacing:0;font-weight:500;color:#73808f;margin-left:2px}
+#movioCallWeather .movio-wx-condition{font-size:10px;line-height:1.4;font-weight:650;color:#536b83;margin:5px 0 3px;overflow-wrap:anywhere}
+#movioCallWeather .movio-wx-rain{font-size:10px;line-height:1.5;color:#657989;overflow-wrap:anywhere}
+#movioCallWeather [data-condition=clear] .movio-wx-icon{color:#bc8d13}
+#movioCallWeather [data-condition=rain] .movio-wx-icon{color:#3282ad}
+#movioCallWeather [data-condition=storm] .movio-wx-icon{color:#776195}
+#movioCallWeather .movio-wx-tip{margin:9px 0 0;padding:8px 9px;background:#fff7dc;border-radius:9px;color:#705b26;font-size:11px;line-height:1.5;overflow-wrap:anywhere}
+#movioCallWeather .movio-wx-footer{margin:7px 0 0;color:#84909e;font-size:9px;line-height:1.5;overflow-wrap:anywhere}
+.phone #movioWeatherTab{position:fixed;z-index:89;right:14px;top:max(12px,env(safe-area-inset-top));display:flex;align-items:center;gap:7px;width:auto;max-width:calc(100vw - 28px);min-height:40px;padding:9px 12px;margin:0;border:1px solid #ecd898;border-radius:999px;background:#fff7db;color:#6b5420;box-shadow:0 5px 18px #21334a14;font:700 12px/1.4 system-ui;cursor:pointer;white-space:nowrap}
+#movioWeatherTab svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.phone #movioCallWeather button:focus-visible,.phone #movioWeatherTab:focus-visible{outline:3px solid #d59d00;outline-offset:-3px}
+@media(min-width:1150px){.phone #movioCallWeather,.phone #movioWeatherTab{right:20px;top:24px}}
+@media(max-width:360px){.phone #movioCallWeather{right:10px;width:calc(100vw - 20px)}#movioCallWeather .movio-wx-content{padding:8px 10px 10px}#movioCallWeather .movio-wx-point{padding:8px}#movioCallWeather .movio-wx-temperature{font-size:22px}}
+@media(max-height:460px){.phone #movioCallWeather{max-height:45dvh}#movioCallWeather .movio-wx-content{padding-top:7px}}
+</style><!-- MOVIO_CALL_WEATHER_STYLE_END --></head><body><main class="phone">
+<h2>AI Ride Call</h2><p class="hint" id="hint">Use headphones. To correct details while the assistant is speaking, press Interrupt / change details.</p>
+<select id="lang"><option value="Tamil">தமிழ் — Tamil</option><option value="English">English</option><option value="Tanglish">Tanglish — தமிழ் + English</option></select>
+<div class="row"><button id="bookMode">Book ride</button><button id="cancelMode">Cancel booking</button></div>
+<div class="row"><button id="call">Start call</button><button id="interrupt" disabled>Interrupt / change details</button><button id="hang" disabled>End call</button></div>
+<div id="status" aria-live="polite">Open this page using the dashboard’s AI Call button.</div>
+<div id="rides"></div><div id="log" role="log"></div>
+<input id="manual" placeholder="Type a correction or reply"><div class="row"><button id="send" disabled>Send reply</button><button id="readSummary">I have read the summary</button></div>
+<p class="hint">Weather forecasts: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>. Conditions may change. Vehicle suggestions concern weather protection; road access and safety restrictions still apply.</p>
+</main><script>
+'use strict';
+const $=id=>document.getElementById(id);
+const nonce=location.hash.slice(1), origin=location.origin;
+let mode='book',socket=null,stream=null,rec=null,context=null,analyser=null,source=null,raf=0;
+let audio=null,finishAudio=null,audioURL=null,connected=false,busy=false,playing=false,callId=0,epoch=0,summaryNonce=null,summaryEpoch=null,ready=false,listenTimer=null,awaitInterrupt=false,playVersion=0,captureVersion=0;
+let speech=null,gapTimer=null,finishGap=null,summaryKind='final';
+const labels={English:['Book ride','Cancel booking','Start call','Interrupt / change details','End call','Send reply','I have read the summary'],Tamil:['பயணம் முன்பதிவு','முன்பதிவை ரத்து செய்','அழைப்பைத் தொடங்கு','நிறுத்தி விவரங்களை மாற்று','அழைப்பை முடி','பதிலை அனுப்பு','சுருக்கத்தைப் படித்தேன்'],Tanglish:['Ride book pannunga','Booking cancel pannunga','Call start','Niruthi details change','Call mudikkavum','Reply anuppu','Summary padichitten']};
+function localize(){['bookMode','cancelMode','call','interrupt','hang','send','readSummary'].forEach((id,i)=>$(id).textContent=labels[$('lang').value][i]);}
+$('lang').onchange=localize;localize();
+function status(t){$('status').textContent=t;}
+function offerReview(kind='final'){summaryKind=kind;const replay={English:'Replay weather advisory',Tamil:'வானிலை ஆலோசனையை மீண்டும் கேள்',Tanglish:'Vaanilai aalosanaiyai meendum kelu'};$('readSummary').textContent=kind==='weather'?replay[$('lang').value]:labels[$('lang').value][6];$('readSummary').style.display='inline-block';}
+function log(who,text){const d=document.createElement('div');d.className=who==='You'?'you':who==='AI'?'ai':'error';d.textContent=who+': '+text;$('log').append(d);$('log').scrollTop=$('log').scrollHeight;}
+// Same-origin fallback for browsers that detach a popup's window.opener.
+const voiceChannel=(()=>{try{return typeof BroadcastChannel==='function'?new BroadcastChannel('movio-ai-booking'):null;}catch(e){return null;}})();
+let parentTransport=null,helloAttempts=0;
+function notify(type,data={}){const message={channel:'ai-ride-call',nonce,type,...data};let sent=false;
+ if(parentTransport!=='broadcast'&&window.opener&&!window.opener.closed){try{window.opener.postMessage(message,origin);sent=true;}catch(e){}}
+ if(voiceChannel&&(type==='hello'||!sent)){try{voiceChannel.postMessage(message);}catch(e){}}
+}
+function handleParentMessage(m,transport){if(mode==='cancel')return;if(!nonce||!m||m.channel!=='ai-ride-call'||m.nonce!==nonce)return;
+ if(m.type==='ready'){ready=true;if(transport==='opener'||!parentTransport)parentTransport=transport;status('Ready');}
+ if(m.type==='ready'||m.type==='rides'){const rides=m.rides||[];$('rides').textContent=mode==='cancel'?rides.map((r,i)=>`${i+1}. #${r.id}: ${r.pickup} → ${r.destination}`).join('\n'):'';if(socket?.readyState===1&&mode==='cancel')send({event:'active_rides',rides});}
+ if(m.type==='result'&&socket?.readyState===1)send({event:'result',ok:!!m.ok,id:m.id,error:m.error,request_id:m.request_id});
+}
+window.addEventListener('message',e=>{if(e.origin!==origin||e.source!==window.opener)return;handleParentMessage(e.data,'opener');});
+if(voiceChannel)voiceChannel.onmessage=e=>handleParentMessage(e.data,'broadcast');
+function requestDashboard(){if(!nonce||ready)return;notify('hello');if(++helloAttempts<10)setTimeout(requestDashboard,500);}
+if(nonce)requestDashboard();
+function send(m){if(socket?.readyState===1)socket.send(JSON.stringify(m));}
+const bookings=new Map();
+async function commitOnce(token){
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
+ try{const response=await fetch('/api/weather-booking/commit',{method:'POST',credentials:'same-origin',signal:controller.signal,headers:{'Content-Type':'application/json'},body:JSON.stringify({token})});
+  const result=await response.json();if(!response.ok||!result.ok){const error=Error(result.error||'Booking was not saved. Please confirm again.');error.http=true;throw error;}return result;
+ }finally{clearTimeout(timer);}
+}
+async function commitBooking(action,id){
+ const request=action.request_id;
+ if(!request||!action.token){send({event:'result',request_id:request,ok:false,error:'Missing booking confirmation. Please confirm again.'});return;}
+ if(!bookings.has(request))bookings.set(request,(async()=>{
+  for(let attempt=0;attempt<2;attempt++){
+   try{return await commitOnce(action.token);}
+   catch(e){if(e.http||attempt===1)return {ok:false,error:e.name==='AbortError'?'Saving timed out. Checking whether the booking was stored.':e.message};}
+  }
+ })());
+ const result=await bookings.get(request);
+ if(result.ok)notify('booking_saved',{id:result.id});
+ if(id===callId&&connected){send({event:'result',request_id:request,epoch:action.epoch,...result});status(result.ok?'Booking saved. Waiting for the spoken confirmation…':'Checking the booking result…');}
+}
+function stopCapture(){clearTimeout(listenTimer);listenTimer=null;cancelAnimationFrame(raf);raf=0;if(rec){rec.onstop=null;if(rec.state==='recording')rec.stop();rec=null;}source?.disconnect();source=null;analyser=null;if(context){context.close().catch(()=>{});context=null;}}
+function releaseAudio(){if(audio){audio.onended=null;audio.onerror=null;audio.pause();audio.src='';audio=null;}if(audioURL){URL.revokeObjectURL(audioURL);audioURL=null;}}
+function stopAudio(){playVersion++;speech=null;clearTimeout(gapTimer);gapTimer=null;if(finishGap){const done=finishGap;finishGap=null;done(false);}releaseAudio();if(finishAudio){const done=finishAudio;finishAudio=null;done(false);}playing=false;}
+function listenSoon(id){clearTimeout(listenTimer);if(connected&&!busy&&!playing)listenTimer=setTimeout(()=>listen(id),300);}
+function listen(id){if(!connected||busy||playing||id!==callId||!stream)return;stopCapture();
+ const type=['audio/webm;codecs=opus','audio/webm','audio/mp4'].find(t=>MediaRecorder.isTypeSupported(t));
+ rec=new MediaRecorder(stream,type?{mimeType:type}:{});const mine=rec,chunks=[],capture=++captureVersion;let speaking=false,first=0,lastVoice=0;
+ rec.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};
+ rec.onstop=()=>{cancelAnimationFrame(raf);if(!connected||id!==callId||!speaking)return;busy=true;status('Thinking…');
+  const blob=new Blob(chunks,{type:mine.mimeType});if(blob.size>2000000){busy=false;status('Please use a shorter reply.');listenSoon(id);return;}
+  const reader=new FileReader();reader.onload=()=>{if(connected&&id===callId&&capture===captureVersion)send({event:'audio',payload:String(reader.result).split(',')[1],summary_nonce:summaryNonce});};reader.readAsDataURL(blob);};
+ rec.start();context=new AudioContext();source=context.createMediaStreamSource(stream);analyser=context.createAnalyser();analyser.fftSize=1024;source.connect(analyser);const samples=new Float32Array(analyser.fftSize),started=performance.now();status('Listening…');
+ function monitor(){if(!connected||busy||playing||id!==callId||mine.state!=='recording')return;analyser.getFloatTimeDomainData(samples);let sum=0;for(const x of samples)sum+=x*x;const now=performance.now();if(Math.sqrt(sum/samples.length)>.023){if(!speaking){speaking=true;first=now;}lastVoice=now;}
+  if(speaking&&now-first>450&&now-lastVoice>1100||now-started>27000){if(speaking)mine.stop();else{stopCapture();listenSoon(id);}return;}raf=requestAnimationFrame(monitor);}
+ raf=requestAnimationFrame(monitor);
+}
+function interrupt(){if(!connected)return;awaitInterrupt=true;captureVersion++;stopAudio();stopCapture();summaryNonce=null;summaryEpoch=null;$('readSummary').style.display='none';busy=false;send({event:'interrupt'});status('Tell me the corrected details.');listenSoon(callId);}
+$('interrupt').onclick=interrupt;
+async function play(m,id){stopAudio();stopCapture();const ticket=playVersion;busy=true;playing=true;status('AI speaking…');let ended=false;const localEpoch=m.epoch;
+ try{const bytes=Uint8Array.from(atob(m.payload),c=>c.charCodeAt(0));audioURL=URL.createObjectURL(new Blob([bytes],{type:'audio/wav'}));audio=new Audio(audioURL);
+  const wait=new Promise(resolve=>{finishAudio=resolve;audio.onended=()=>resolve(true);audio.onerror=()=>resolve(false);});await audio.play();ended=await wait;
+ }catch(e){log('Error','Audio could not play. Read the summary below.');}
+ finally{if(ticket===playVersion&&id===callId&&(localEpoch==null||localEpoch===epoch)){stopAudio();busy=false;playing=false;/* MOVIO_WX_PLAY_BEGIN */window.movioCallWeatherUI?.playbackFinished(m,id,ended);/* MOVIO_WX_PLAY_END */if(ended&&m.summary_nonce){send({event:'playback_ended',epoch:m.epoch,summary_nonce:m.summary_nonce});$('readSummary').style.display='none';}else if(m.summary_nonce){offerReview(m.summary_kind);}if(m.done){stop();status('Call completed.');}else listenSoon(id);}}
+}
+function queueSpeech(m,id){
+ if(m.event==='reply'){stopAudio();stopCapture();speech={id,epoch:m.epoch,meta:m,total:m.chunk_count,next:0,chunks:new Map(),running:false};busy=true;playing=true;status('AI speaking…');}
+ const current=speech;if(!current||current.id!==id||current.epoch!==m.epoch||id!==callId)return;
+ if(m.chunk_index<current.next)return;current.chunks.set(m.chunk_index,m);drainSpeech(current);
+}
+async function drainSpeech(current){
+ if(current.running)return;current.running=true;
+ try{
+  while(speech===current&&current.id===callId&&current.epoch===epoch){
+   const part=current.chunks.get(current.next);if(!part)return;current.chunks.delete(current.next);
+   let ended=false;
+   try{const bytes=Uint8Array.from(atob(part.payload),c=>c.charCodeAt(0));audioURL=URL.createObjectURL(new Blob([bytes],{type:'audio/wav'}));audio=new Audio(audioURL);
+    const wait=new Promise(resolve=>{finishAudio=resolve;audio.onended=()=>resolve(true);audio.onerror=()=>resolve(false);});await audio.play();ended=await wait;
+   }catch(e){ended=false;}
+   if(speech!==current||current.id!==callId||current.epoch!==epoch)return;
+   finishAudio=null;releaseAudio();
+   if(!ended){speech=null;playing=false;busy=false;log('Error',current.meta.summary_kind==='weather'?'Weather audio could not play. Replay the advisory before continuing.':'Audio could not play. Review the booking details below.');if(current.meta.summary_nonce)offerReview(current.meta.summary_kind);listenSoon(current.id);return;}
+   current.next++;
+   if(current.next===current.total){speech=null;playing=false;busy=false;/* MOVIO_WX_STREAM_BEGIN */window.movioCallWeatherUI?.playbackFinished(current.meta,current.id,true);/* MOVIO_WX_STREAM_END */
+    if(current.meta.summary_nonce)send({event:'playback_ended',epoch:current.epoch,summary_nonce:current.meta.summary_nonce});
+    if(current.meta.done){stop();status('Call completed.');}else listenSoon(current.id);return;
+   }
+   if(part.pause_after_ms){await new Promise(resolve=>{finishGap=resolve;gapTimer=setTimeout(()=>{finishGap=null;gapTimer=null;resolve(true);},part.pause_after_ms);});}
+  }
+ }finally{current.running=false;if(speech===current&&current.id===callId&&current.epoch===epoch&&current.chunks.has(current.next))drainSpeech(current);}
+}
+
+/* MOVIO_CANCEL_ACCOUNT_V1 */
+let accountCancelRides = [];
+let accountCancelOwner = null;
+
+const accountCancelRequests = new Map();
+
+const accountCancelStatuses = new Set([
+    'scheduled',
+    'requested',
+    'accepted',
+    'arriving',
+    'needs_location'
+]);
+
+async function cancelAccountAPI(path, body) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 10000);
+
+    try {
+        const response = await fetch('/api' + path, {
+            credentials: 'same-origin',
+            cache: 'no-store',
+            signal: controller.signal,
+            ...(body === undefined ? {} : {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(body)
+            })
+        });
+
+        let data;
+
+        try {
+            data = await response.json();
+        } catch (error) {
+            throw Error(
+                'The website API did not return JSON. ' +
+                'Open the current website address.'
+            );
+        }
+
+        if (response.status === 401) {
+            throw Error(
+                'Sign in to your customer account on this website address.'
+            );
+        }
+
+        if (!response.ok || data.ok === false) {
+            throw Error(
+                data.error || 'The booking request was rejected.'
+            );
+        }
+
+        return data;
+    } finally {
+        clearTimeout(timer);
+    }
+}
+
+async function cancelAccountSnapshot() {
+    const me = await cancelAccountAPI('/me');
+
+    if (me.role !== 'customer') {
+        throw Error(
+            'Use your customer account to cancel a booking.'
+        );
+    }
+
+    const data = await cancelAccountAPI('/rides');
+
+    if (!Array.isArray(data.rides)) {
+        throw Error(
+            'Your bookings could not be loaded. Please retry.'
+        );
+    }
+
+    return {
+        owner: Number(me.id),
+        rides: data.rides.filter(
+            ride => Number(ride.customer_id) === Number(me.id)
+        )
+    };
+}
+
+async function loadAccountCancellation() {
+    const snapshot = await cancelAccountSnapshot();
+
+    accountCancelOwner = snapshot.owner;
+
+    accountCancelRides = snapshot.rides.filter(
+        ride => accountCancelStatuses.has(ride.status)
+    ).slice(0, 30);
+
+    $('rides').textContent = accountCancelRides.map(
+        (ride, index) =>
+            `${index + 1}. #${ride.id}: ` +
+            `${ride.pickup} → ${ride.destination} (${ride.status})`
+    ).join('\n');
+
+    return accountCancelRides;
+}
+
+async function ownedCancellationRide(id) {
+    const snapshot = await cancelAccountSnapshot();
+
+    if (snapshot.owner !== accountCancelOwner) {
+        throw Error(
+            'Your signed-in account changed. ' +
+            'End this call and start again.'
+        );
+    }
+
+    const ride = snapshot.rides.find(
+        item => Number(item.id) === id
+    );
+
+    if (!ride) {
+        throw Error(
+            'This booking was not found in your signed-in account.'
+        );
+    }
+
+    return ride;
+}
+
+async function cancelAccountBooking(action, id) {
+    const request = action.request_id;
+
+    if (!request) {
+        send({
+            event: 'result',
+            ok: false,
+            error: 'Cancellation confirmation is missing.'
+        });
+        return;
+    }
+
+    const key = id + ':' + request;
+
+    if (!accountCancelRequests.has(key)) {
+        accountCancelRequests.set(key, (async () => {
+            try {
+                const rideId = Number(action.ride_id);
+
+                if (!Number.isSafeInteger(rideId) || rideId < 1) {
+                    throw Error('Invalid booking number.');
+                }
+
+                const ride = await ownedCancellationRide(rideId);
+
+                if (ride.status !== 'cancelled') {
+                    if (!accountCancelStatuses.has(ride.status)) {
+                        throw Error(
+                            'This booking cannot be cancelled ' +
+                            'in its current state.'
+                        );
+                    }
+
+                    try {
+                        if (ride.status === 'scheduled') {
+                            await cancelAccountAPI(
+                                '/weather-booking/cancel',
+                                {ride_id: rideId}
+                            );
+                        } else {
+                            await cancelAccountAPI(
+                                '/rides/' + rideId + '/status',
+                                {status: 'cancelled'}
+                            );
+                        }
+                    } catch (error) {
+                        const latest = await ownedCancellationRide(
+                            rideId
+                        );
+
+                        if (latest.status !== 'cancelled') {
+                            if (
+                                ride.status === 'scheduled' &&
+                                latest.status !== 'scheduled' &&
+                                accountCancelStatuses.has(latest.status)
+                            ) {
+                                await cancelAccountAPI(
+                                    '/rides/' + rideId + '/status',
+                                    {status: 'cancelled'}
+                                );
+                            } else {
+                                throw error;
+                            }
+                        }
+                    }
+                }
+
+                const saved = await ownedCancellationRide(rideId);
+
+                if (saved.status !== 'cancelled') {
+                    throw Error(
+                        'Cancellation was not saved. Please retry.'
+                    );
+                }
+
+                return {ok: true, id: rideId};
+
+            } catch (error) {
+                return {
+                    ok: false,
+                    error: error.name === 'AbortError'
+                        ? 'The website timed out. Check your booking ' +
+                          'status before retrying.'
+                        : error.message
+                };
+            }
+        })());
+    }
+
+    const result = await accountCancelRequests.get(key);
+
+    if (id === callId && connected) {
+        send({
+            event: 'result',
+            request_id: request,
+            ...result
+        });
+    }
+}
+
+async function start(){if(connected)return;const id=++callId;epoch=0;summaryNonce=null;awaitInterrupt=false;
+ try{if(mode==='cancel')await loadAccountCancellation();const binding=mode==='book'?await fetch('/api/weather-booking/session',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:'{}'}).then(async r=>{const j=await r.json();if(!r.ok)throw Error(j.error||'Sign in first');return j;}):null;
+  stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}});socket=new WebSocket(`${location.protocol==='https:'?'wss':'ws'}://${location.host}/browser-call?language=${encodeURIComponent($('lang').value)}&mode=${mode}`);
+  socket.onopen=()=>{connected=true;busy=true;$('call').disabled=true;$('hang').disabled=false;$('interrupt').disabled=mode==='cancel';$('send').disabled=mode==='cancel';$('lang').disabled=true;$('bookMode').disabled=true;$('cancelMode').disabled=true;if(binding)send({event:'start',...binding});if(mode==='cancel')send({event:'active_rides',rides:accountCancelRides});else notify('get_rides');};
+  socket.onmessage=async e=>{if(id!==callId)return;const m=JSON.parse(e.data);if(m.epoch!=null&&m.epoch<epoch)return;if(m.epoch!=null)epoch=m.epoch;
+   if(awaitInterrupt&&['reply','speech_chunk','action'].includes(m.event))return;
+   /* MOVIO_WX_EVENT_BEGIN */window.movioCallWeatherUI?.event(m,id);/* MOVIO_WX_EVENT_END */if(m.event==='ready')return;
+   if(m.event==='processing'){busy=true;status('Thinking…');return;}
+   if(m.event==='interrupted'){awaitInterrupt=false;busy=false;listenSoon(id);return;}
+   if(m.event==='heard'){log('You',m.text);return;}
+   if(m.event==='booking_error'){log('Error',m.message||'Booking was not saved.');status('Review the summary and confirm again.');return;}
+   if(m.event==='error'){stopAudio();log('Error',m.message||'Please repeat');awaitInterrupt=false;busy=false;if(m.fatal)stop();else listenSoon(id);return;}
+   if(m.event==='action'){busy=true;stopCapture();status('Saving your confirmed booking…');if(m.type==='weather_book')await commitBooking(m,id);else if(m.type==='cancel')await cancelAccountBooking(m,id);else notify('action',{action:m});return;}
+   if(m.event==='speech_chunk'){queueSpeech(m,id);return;}
+   if(m.event==='reply'){/* MOVIO_WX_REPLY_BEGIN */window.movioCallWeatherUI?.reply(m,id);if(window.movioCallWeatherUI?.shouldLog(m,id)!==false)/* MOVIO_WX_REPLY_END */if(m.text)log('AI',m.text);summaryNonce=m.summary_nonce||null;summaryEpoch=m.epoch;summaryKind=m.summary_kind||'final';$('readSummary').style.display='none';if(m.streaming)queueSpeech(m,id);else if(m.payload)await play(m,id);else{busy=false;if(summaryNonce)offerReview(summaryKind);listenSoon(id);}}
+  };
+  socket.onclose=()=>{if(id===callId)stop();};socket.onerror=()=>log('Error','Connection failed. Check the notebook services.');
+ }catch(e){log('Error',e.message);stop();}
+}
+function stop(){callId++;connected=false;busy=false;stopAudio();stopCapture();socket?.close();socket=null;stream?.getTracks().forEach(t=>t.stop());stream=null;$('call').disabled=false;$('hang').disabled=true;$('interrupt').disabled=true;$('send').disabled=true;$('lang').disabled=false;$('bookMode').disabled=false;$('cancelMode').disabled=false;status('Call ended');}
+function typed(text){if(!connected||!text.trim())return;if(playing||busy)interrupt();captureVersion++;stopCapture();busy=true;send({event:'text',text:text.trim(),summary_nonce:summaryNonce});}
+$('send').onclick=()=>{typed($('manual').value);$('manual').value='';};$('manual').onkeydown=e=>{if(e.key==='Enter')$('send').click();};
+$('readSummary').onclick=()=>{if(summaryNonce){if(summaryKind==='weather'){typed('repeat weather');$('readSummary').style.display='none';return;}send({event:'summary_read',epoch:summaryEpoch,summary_nonce:summaryNonce});$('readSummary').style.display='none';status('Summary read. Say yes to confirm, or give a correction.');listenSoon(callId);}};
+$('bookMode').onclick=()=>{mode='book';$('rides').textContent='';};$('cancelMode').onclick=async()=>{mode='cancel';try{await loadAccountCancellation();status('Your bookings are loaded. Start the call.');}catch(error){$('rides').textContent='';status(error.message);}};$('call').onclick=start;$('hang').onclick=stop;window.addEventListener('beforeunload',stop);
+</script><!-- MOVIO_CALL_THEME_SCRIPT_BEGIN --><script id="movioCallThemeScript">
+/* MOVIO_CALL_THEME_V1: presentation only; preserve every existing call handler. */
+(function(){
+ 'use strict';
+ const byId=id=>document.getElementById(id),book=byId('bookMode'),cancel=byId('cancelMode'),language=byId('lang');
+ if(!book||!cancel||!language||document.getElementById('movioCallSelected'))return;
+ const panel=book.closest('.phone');if(!panel)return;
+ const heading=panel.querySelector('h2');
+ if(heading){const brand=document.createElement('div'),mark=document.createElement('span');brand.className='movio-call-brand';mark.className='movio-call-mark';mark.textContent='M';mark.setAttribute('aria-hidden','true');heading.before(brand);brand.append(mark,heading);}
+ const languageLabel=document.createElement('label'),caption=document.createElement('span');
+ languageLabel.className='movio-call-language';languageLabel.htmlFor='lang';caption.id='movioCallLanguageLabel';language.before(languageLabel);languageLabel.append(caption,language);
+ const modes=book.parentElement;modes.classList.add('movio-call-modes');modes.setAttribute('role','group');
+ const note=document.createElement('p');note.id='movioCallSelected';note.className='movio-call-selected';note.setAttribute('role','status');note.setAttribute('aria-live','polite');modes.after(note);
+ const startButton=byId('call'),actions=startButton.parentElement;actions.classList.add('movio-call-actions');actions.before(startButton);
+ byId('send')?.parentElement.classList.add('movio-call-replies');
+ const copy={
+  English:{language:'Language',purpose:'Call purpose',book:'Ride booking selected',cancel:'Booking cancellation selected',empty:'Your conversation will appear here.',placeholder:'Type a reply or correction'},
+  Tamil:{language:'மொழி',purpose:'அழைப்பின் நோக்கம்',book:'பயண முன்பதிவு தேர்ந்தெடுக்கப்பட்டுள்ளது',cancel:'முன்பதிவு ரத்து தேர்ந்தெடுக்கப்பட்டுள்ளது',empty:'உங்கள் உரையாடல் இங்கே தோன்றும்.',placeholder:'பதில் அல்லது திருத்தத்தை எழுதுங்கள்'},
+  Tanglish:{language:'Language',purpose:'Call purpose',book:'Ride booking selected',cancel:'Booking cancellation selected',empty:'Unga conversation inga varum.',placeholder:'Reply illa correction type pannunga'}
+ };
+ const tanglish=['Ride book pannu','Booking cancel pannu','Call start','Niruthi detail change pannu','Call mudikkavum'];
+ if(typeof labels==='object'&&Array.isArray(labels.Tanglish))tanglish.forEach((text,index)=>{labels.Tanglish[index]=text;});
+ let selected='book';
+ function update(requested){
+  // Read the actual existing mode; do not change it or replace its click handlers.
+  selected=typeof mode==='string'&&['book','cancel'].includes(mode)?mode:requested||selected;
+  const text=copy[language.value]||copy.English;
+  if(language.value==='Tanglish')for(const [index,id] of ['bookMode','cancelMode','call','interrupt','hang'].entries())byId(id).textContent=tanglish[index];
+  for(const [button,value] of [[book,'book'],[cancel,'cancel']]){
+   button.setAttribute('aria-pressed',String(selected===value));button.setAttribute('aria-label',button.textContent);button.setAttribute('aria-describedby',note.id);
+  }
+  modes.setAttribute('aria-label',text.purpose);caption.textContent=text.language;note.textContent=text[selected];
+  const log=byId('log');if(log)log.setAttribute('data-empty-label',text.empty);
+  const input=byId('manual');if(input){input.placeholder=text.placeholder;input.setAttribute('aria-label',text.placeholder);}
+ }
+ // Existing onclick/onchange handlers run first and retain all booking/account logic.
+ book.addEventListener('click',()=>update('book'));cancel.addEventListener('click',()=>update('cancel'));
+ language.addEventListener('change',()=>update());update();
+})();
+</script><!-- MOVIO_CALL_THEME_SCRIPT_END --><!-- MOVIO_CONFIRMATION_CLIENT_START_V1 -->
+<script>
+
+// MOVIO_CONFIRMATION_CLIENT_V1 — behaviour only; existing layout/theme retained.
+(()=>{
+ 'use strict';
+ if(window.__movioConfirmationFlow)return;window.__movioConfirmationFlow=true;
+ const affirmative=new Set(["aam", "aama", "aama book pannunga", "aamaa", "aamam", "amam", "bike continue", "book it", "book pannu", "book pannunga", "booking pannunga", "confirm", "confirmed", "continue", "continue pannunga", "go ahead", "keep bike", "keep the bike", "ok", "okay", "sari", "seri", "seri book pannunga", "yeah", "yep", "yes", "yes book it", "yes book pannunga", "yes confirm", "yes continue", "yes please", "yes please confirm", "yes please continue", "ஆமா", "ஆமாங்க", "ஆமாம்", "ஆமாம் தொடரலாம்", "ஆம்", "ஆம் தொடரலாம்", "ஆம் தொடருங்கள்", "ஆம் புக் செய்க", "ஆம் புக் பண்ணுங்க", "உறுதி செய்யுங்கள்", "சரி", "சரி புக் பண்ணுங்க", "சரிங்க", "சரிதான்", "சரியாக உள்ளது", "தொடரலாம்", "தொடருங்கள்", "புக் பண்ணுங்க", "புக்கிங் பண்ணுங்க", "பைக் தொடரட்டும்", "முன்பதிவு செய்யுங்கள்"]);
+ const norm=s=>String(s||'').normalize('NFKC').toLowerCase().replace(/\p{Cf}/gu,'').replace(/\p{P}/gu,' ').replace(/\s+/g,' ').trim();
+ const yes=s=>affirmative.has(norm(s));
+ const oldSend=send,oldTyped=typed;
+ let observed=null,latest=null,acknowledged=null,queued=null,saving=false;
+ const submitted=new Set();
+ function observe(){
+  if(!socket||socket===observed)return;
+  observed=socket;latest=null;acknowledged=null;queued=null;saving=false;submitted.clear();
+  socket.addEventListener('message',e=>{
+   let m;try{m=JSON.parse(e.data);}catch{return;}
+   if(m.event==='reply'){
+    latest=m.summary_nonce?{nonce:m.summary_nonce,epoch:m.epoch,kind:m.summary_kind||'final'}:null;
+    if(queued&&(!latest||queued.nonce!==latest.nonce))queued=null;
+    if(m.done){saving=false;queued=null;}
+   }
+   if(m.event==='action'&&m.type==='weather_book'){saving=true;queued=null;}
+   if(m.event==='error'||m.event==='booking_error'){saving=false;if(latest)submitted.delete(latest.nonce);}
+   if(m.event==='interrupted'){queued=null;latest=null;acknowledged=null;}
+  });
+ }
+ function flush(){
+  const item=queued;
+  if(!item||saving||!connected||busy||playing)return;
+  if(!latest||item.nonce!==latest.nonce||summaryNonce!==item.nonce){queued=null;return;}
+  if(acknowledged!==item.nonce)return;
+  queued=null;oldTyped(item.text);
+ }
+ send=function(message){
+  observe();
+  if(message.event==='playback_ended'||message.event==='summary_read'){
+   if(latest&&message.summary_nonce===latest.nonce)acknowledged=message.summary_nonce;
+   oldSend(message);setTimeout(flush,0);return;
+  }
+  if(message.event==='interrupt'){queued=null;latest=null;acknowledged=null;}
+  if(message.event==='text'&&yes(message.text)&&message.summary_nonce){
+   if(submitted.has(message.summary_nonce))return;
+   submitted.add(message.summary_nonce);
+  }
+  oldSend(message);
+ };
+ typed=function(text){
+  observe();
+  if(yes(text)&&latest&&summaryNonce===latest.nonce){
+   if(saving||submitted.has(latest.nonce))return;
+   if(playing||busy||acknowledged!==latest.nonce){queued={text:String(text),nonce:latest.nonce};return;}
+  }else queued=null;
+  oldTyped(text);
+ };
+})();
+</script>
+<!-- MOVIO_CONFIRMATION_CLIENT_END_V1 -->
+<!-- MOVIO_CALL_WEATHER_SCRIPT_BEGIN --><script id="movioCallWeatherScript">/* MOVIO_CALL_WEATHER_POPUP_V1: one renderer, existing response and playback only. */
+(()=>{
+ 'use strict';
+ const transcript=document.getElementById('log'),language=document.getElementById('lang');
+ if(!transcript||!language||window.movioCallWeatherUI)return;
+ const panel=transcript.closest('.phone');if(!panel)return;
+ const card=document.createElement('section');card.id='movioCallWeather';card.hidden=true;
+ card.setAttribute('role','region');card.setAttribute('aria-labelledby','movioWeatherTitle');
+ const tab=document.createElement('button');tab.id='movioWeatherTab';tab.type='button';tab.hidden=true;
+ tab.setAttribute('aria-controls',card.id);tab.setAttribute('aria-expanded','false');
+ panel.append(card,tab);
+ let current=null,currentKey='',session=null,pending=null,expanded=false;
+ const opened=new Set(),printed=new Set();
+ // EXISTING_WEATHER_HELPERS: inserted here at build time, not loaded externally.
+ const copy={
+  English:{title:'Your trip weather',subtitle:'Both locations at your pickup time',pickup:'Pickup',destination:'Destination',rain:'rain chance',missing:'Not reported',forecast:'Forecast',
+   clear:'Sunny',mainlyClear:'Mostly clear',partlyCloudy:'Partly cloudy',cloudy:'Cloudy',fog:'Foggy',drizzle:'Drizzle',rainy:'Rainy',heavyRain:'Heavy rain',freezingRain:'Freezing rain',snow:'Snow',showers:'Rain showers',storm:'Thunderstorms',hail:'Thunderstorms with hail',unknown:'Condition not reported'},
+  Tamil:{title:'உங்கள் பயண வானிலை',subtitle:'புறப்படும் நேரத்தில் இரு இடங்களின் முன்னறிவிப்பு',pickup:'புறப்படும் இடம்',destination:'சேரும் இடம்',rain:'மழை வாய்ப்பு',missing:'தகவல் இல்லை',forecast:'முன்னறிவிப்பு',
+   clear:'வெயில்',mainlyClear:'தெளிவான வானம்',partlyCloudy:'ஓரளவு மேகமூட்டம்',cloudy:'மேகமூட்டம்',fog:'மூடுபனி',drizzle:'தூறல்',rainy:'மழை',heavyRain:'கனமழை',freezingRain:'உறையும் மழை',snow:'பனிப்பொழிவு',showers:'மழைச் சாரல்',storm:'இடியுடன் மழை',hail:'இடியுடன் ஆலங்கட்டி மழை',unknown:'வானிலை தகவல் இல்லை'},
+  Tanglish:{title:'Unga trip weather',subtitle:'Pickup time-la rendu places-oda forecast',pickup:'Pickup',destination:'Destination',rain:'rain chance',missing:'Not reported',forecast:'Forecast',
+   clear:'Sunny',mainlyClear:'Mostly clear',partlyCloudy:'Partly cloudy',cloudy:'Cloudy',fog:'Foggy',drizzle:'Drizzle',rainy:'Rainy',heavyRain:'Heavy rain',freezingRain:'Freezing rain',snow:'Snow',showers:'Rain showers',storm:'Thunderstorms',hail:'Thunderstorms with hail',unknown:'Condition not reported'}
+ };
+ const drawings={
+  clear:'<circle cx="20" cy="20" r="6"/><path d="M20 4v4m0 24v4M4 20h4m24 0h4M9 9l3 3m16 16l3 3M9 31l3-3m16-16l3-3"/>',
+  cloudy:'<path d="M11 29h18a7 7 0 0 0 .2-14 10 10 0 0 0-19-1A7.6 7.6 0 0 0 11 29Z"/>',
+  rain:'<path d="M10 24h20a6 6 0 0 0-1-12 9 9 0 0 0-17-1 6.6 6.6 0 0 0-2 13ZM13 29l-2 5m10-5-2 5m10-5-2 5"/>',
+  storm:'<path d="M10 24a6.6 6.6 0 0 1 2-13 9 9 0 0 1 17 1 6 6 0 0 1 1 12M22 21l-7 9h7l-4 7"/>',
+  fog:'<path d="M10 23h20a6 6 0 0 0-1-12 9 9 0 0 0-17-1 6.6 6.6 0 0 0-2 13M7 29h26M11 34h18"/>',
+  snow:'<path d="M10 24h20a6 6 0 0 0-1-12 9 9 0 0 0-17-1 6.6 6.6 0 0 0-2 13M13 30h.1M20 34h.1M28 30h.1"/>'
+ };
+ function condition(code){
+  if(code===0)return ['clear','clear'];if(code===1)return ['mainlyClear','clear'];
+  if(code===2)return ['partlyCloudy','cloudy'];if(code===3)return ['cloudy','cloudy'];
+  if([45,48].includes(code))return ['fog','fog'];if([51,53,55,56,57].includes(code))return ['drizzle','rain'];
+  if([61,63].includes(code))return ['rainy','rain'];if([65,82].includes(code))return ['heavyRain','rain'];
+  if([66,67].includes(code))return ['freezingRain','rain'];if([71,73,75,77,85,86].includes(code))return ['snow','snow'];
+  if([80,81].includes(code))return ['showers','rain'];if(code===95)return ['storm','storm'];
+  if([96,99].includes(code))return ['hail','storm'];return ['unknown','cloudy'];
+ }
+ function node(tag,cls,text){const element=document.createElement(tag);if(cls)element.className=cls;if(text!==undefined)element.textContent=text;return element;}
+ function numeric(value,lower,upper){return typeof value==='number'&&Number.isFinite(value)&&value>=lower&&value<=upper;}
+ function format(value){return new Intl.NumberFormat('en-IN',{maximumFractionDigits:1}).format(value);}
+ function date(value,lang){try{const instant=new Date(value);if(Number.isNaN(instant.getTime()))return '';return new Intl.DateTimeFormat(lang==='Tamil'?'ta-IN':'en-IN',{timeZone:'Asia/Kolkata',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}).format(instant);}catch{return '';}}
+
+ const extra={
+  English:{tab:'Trip weather',minimize:'Minimize weather',tip:'Travel tip',
+   rainTip:'Carry an umbrella and protect your belongings from rain.',
+   stormTip:'Check local warnings and take shelter if thunder is nearby.',
+   heatTip:'Carry drinking water and use sun protection.',
+   clearTip:'Keep water handy and use sun protection outdoors.',
+   fogTip:'Take care around the pickup point when visibility is low.',
+   snowTip:'Wear suitable layers and take care on slippery surfaces.',
+   neutralTip:'Keep your travel essentials handy before leaving.'},
+  Tamil:{tab:'பயண வானிலை',minimize:'வானிலையைச் சுருக்கு',tip:'பயணக் குறிப்பு',
+   rainTip:'குடை எடுத்துக்கொண்டு உங்கள் பொருட்களை மழையிலிருந்து பாதுகாத்துக்கொள்ளுங்கள்.',
+   stormTip:'உள்ளூர் எச்சரிக்கைகளைக் கவனியுங்கள். இடி அருகில் கேட்டால் பாதுகாப்பான இடத்தில் இருங்கள்.',
+   heatTip:'குடிநீர் எடுத்துக்கொள்ளுங்கள். வெயிலிலிருந்து பாதுகாத்துக்கொள்ளுங்கள்.',
+   clearTip:'குடிநீர் வைத்துக்கொள்ளுங்கள். வெளியே செல்லும்போது வெயிலிலிருந்து பாதுகாத்துக்கொள்ளுங்கள்.',
+   fogTip:'பார்வை தெளிவாக இல்லாவிட்டால் வாகனத்தில் ஏறுமிடத்தில் கவனமாக இருங்கள்.',
+   snowTip:'பொருத்தமான உடை அணியுங்கள். வழுக்கும் இடங்களில் கவனமாக இருங்கள்.',
+   neutralTip:'கிளம்பும் முன் பயணத்திற்குத் தேவையான பொருட்களை எடுத்துக்கொள்ளுங்கள்.'},
+  Tanglish:{tab:'Trip weather',minimize:'Weather-a minimize pannunga',tip:'Travel tip',
+   rainTip:'Umbrella eduthukkonga. Unga belongings-a rain-la irundhu protect pannikkonga.',
+   stormTip:'Local warnings-a check pannunga. Idi pakkathula ketta safe place-la irunga.',
+   heatTip:'Drinking water eduthukkonga. Sun protection use pannunga.',
+   clearTip:'Water vachukkonga. Velila pogumbodhu sun protection use pannunga.',
+   fogTip:'Visibility kammiya irundha pickup place-la careful-ah irunga.',
+   snowTip:'Suitable clothes pottukkonga. Slippery places-la careful-ah irunga.',
+   neutralTip:'Kelambura munnaadi travel essentials-a eduthukkonga.'}
+ };
+ function bounded(set,key){set.add(key);if(set.size>192)set.delete(set.values().next().value);}
+ function valid(data){
+  return !!data&&data.version==='call-weather-card-v1'&&Array.isArray(data.points)&&data.points.some(p=>
+   p&&['pickup','destination'].includes(p.role)&&(numeric(p.temperature_c,-100,70)||numeric(p.rain_probability_pct,0,100)||numeric(p.weather_code,0,99)));
+ }
+ function identity(data){return JSON.stringify([data.pickup_at,data.points.filter(p=>p&&['pickup','destination'].includes(p.role)).map(p=>
+  [p.role,p.place,p.valid_at,p.weather_code,p.temperature_c,p.rain_probability_pct])]);}
+ function labels(){return {...(copy[language.value]||copy.English),...(extra[language.value]||extra.English)};}
+ function show(value){
+  expanded=!!value&&!!current;card.hidden=!expanded;tab.hidden=!current||expanded;
+  tab.setAttribute('aria-expanded',String(expanded));
+ }
+ function hide(){current=null;currentKey='';pending=null;show(false);card.replaceChildren();}
+ function reset(id){hide();session=id;opened.clear();printed.clear();}
+ function minimize(){show(false);}
+ function tip(points,text){
+  const icons=points.map(p=>condition(p.weather_code)[1]);
+  const rain=points.some(p=>numeric(p.rain_probability_pct,0,100)&&p.rain_probability_pct>=50);
+  if(icons.includes('storm'))return text.stormTip;
+  if(icons.includes('rain')||rain)return text.rainTip;
+  if(points.some(p=>numeric(p.temperature_c,-100,70)&&p.temperature_c>=32))return text.heatTip;
+  if(icons.includes('snow'))return text.snowTip;
+  if(icons.includes('fog'))return text.fogTip;
+  if(icons.includes('clear'))return text.clearTip;
+  return text.neutralTip;
+ }
+ function render(){
+  if(!current)return;
+  const text=labels(),data=current;
+  const focusClose=card.contains(document.activeElement);card.replaceChildren();
+  const header=node('div','movio-wx-header'),dot=node('span','movio-wx-dot');dot.setAttribute('aria-hidden','true');
+  const heading=node('h3','movio-wx-heading',text.title);heading.id='movioWeatherTitle';
+  const close=node('button','movio-wx-minimize','−');close.type='button';close.setAttribute('aria-label',text.minimize);close.title=text.minimize;
+  close.addEventListener('click',()=>{minimize();tab.focus({preventScroll:true});});
+  header.append(dot,heading,close);card.append(header);
+  const content=node('div','movio-wx-content');content.tabIndex=0;
+  content.append(node('p','movio-wx-subtitle',text.subtitle));
+  const grid=node('div','movio-wx-grid');
+  const points=['pickup','destination'].map(role=>data.points.find(p=>p&&p.role===role)).filter(Boolean);
+  for(const point of points){
+   const key=condition(point.weather_code),box=node('article','movio-wx-point');box.dataset.condition=key[1];
+   const place=node('div','movio-wx-place',String(point.place||text[point.role]).slice(0,120));place.title=place.textContent;
+   box.append(node('div','movio-wx-role',text[point.role]),place);
+   const main=node('div','movio-wx-main'),icon=node('span','movio-wx-icon');icon.setAttribute('aria-hidden','true');
+   icon.innerHTML='<svg viewBox="0 0 40 40" aria-hidden="true">'+(drawings[key[1]]||drawings.cloudy)+'</svg>';
+   const temperature=node('div','movio-wx-temperature');
+   temperature.append(node('span','',numeric(point.temperature_c,-100,70)?format(point.temperature_c):'—'),node('small','','°C'));
+   main.append(icon,temperature);box.append(main,node('div','movio-wx-condition',text[key[0]]));
+   if(numeric(point.rain_probability_pct,0,100))box.append(node('div','movio-wx-rain',format(point.rain_probability_pct)+'% '+text.rain));
+   grid.append(box);
+  }
+  content.append(grid);
+  const suggestion=node('p','movio-wx-tip',tip(points,text));suggestion.setAttribute('aria-label',text.tip);content.append(suggestion);
+  content.append(node('p','movio-wx-footer',[String(data.source||text.forecast).slice(0,60),date(data.pickup_at,language.value)].filter(Boolean).join(' · ')));
+  card.append(content);
+  tab.replaceChildren();const symbol=node('span','');symbol.setAttribute('aria-hidden','true');
+  symbol.innerHTML='<svg viewBox="0 0 40 40">'+drawings.cloudy+'</svg>';
+  tab.append(symbol,node('span','',text.tab));tab.setAttribute('aria-label',text.tab);
+  if(focusClose)close.focus({preventScroll:true});
+ }
+ function receive(data){
+  if(!valid(data)){hide();return;}
+  const key=identity(data),changed=key!==currentKey;
+  current=data;currentKey=key;render();
+  if(!opened.has(key)){bounded(opened,key);show(true);}
+  else if(changed)show(false);
+  else show(expanded);
+ }
+ function reply(message,id){
+  if(session!==id)reset(id);
+  receive(message.weather_card||null);
+  pending=current&&(message.streaming||message.payload)?{id,epoch:message.epoch,nonce:message.summary_nonce||null,key:currentKey}:null;
+ }
+ function shouldLog(message,id){
+  // De-duplicate presentation only. Never consume a reply/ack/booking action.
+  if(!valid(message.weather_card)||!message.text)return true;
+  const weatherOnly=message.summary_kind==='weather'||message.stage==='weather_advisory';
+  const key=JSON.stringify([id,language.value,identity(message.weather_card),weatherOnly?'weather':message.epoch,
+   weatherOnly?'':message.summary_nonce||'',message.text]);
+  if(printed.has(key))return false;
+  bounded(printed,key);return true;
+ }
+ function playbackFinished(message,id,ended){
+  if(!ended||!pending||pending.id!==id||pending.epoch!==message.epoch||
+   pending.nonce!==(message.summary_nonce||null)||pending.key!==currentKey)return;
+  pending=null;minimize();
+ }
+ function event(message,id){
+  if(session!==null&&id!==session)return;
+  if(message.event==='interrupted'||message.event==='error')hide();
+ }
+ window.movioCallWeatherUI=Object.freeze({version:'call-weather-popup-1.0',reply,shouldLog,playbackFinished,event,hide,
+  state:()=>({available:!!current,expanded,key:currentKey,pending:!!pending})});
+ // Backward-compatible display entry point; uses the same sole renderer.
+ window.movioRenderWeatherCard=data=>receive(data);
+ tab.addEventListener('click',()=>show(true));
+ card.addEventListener('keydown',e=>{if(e.key==='Escape'){minimize();tab.focus({preventScroll:true});}});
+ language.addEventListener('change',()=>{if(current)render();});
+ for(const id of ['call','hang','interrupt','bookMode','cancelMode'])document.getElementById(id)?.addEventListener('click',hide);
+ for(const id of ['manual','send','readSummary'])document.getElementById(id)?.addEventListener('focus',minimize);
+ // A programmatic interrupt changes the existing status; no socket wrapper.
+ const status=document.getElementById('status'),observer=new MutationObserver(()=>{
+  if(typeof awaitInterrupt==='boolean'&&awaitInterrupt)hide();
+  else if(typeof connected==='boolean'&&!connected)hide();
+ });
+ if(status)observer.observe(status,{childList:true,subtree:true,characterData:true});
+ function onScroll(){if(expanded)minimize();}
+ window.addEventListener('scroll',onScroll,{passive:true});
+ window.addEventListener('beforeunload',()=>{observer.disconnect();window.removeEventListener('scroll',onScroll);},{once:true});
+})();
+</script><!-- MOVIO_CALL_WEATHER_SCRIPT_END --></body></html>

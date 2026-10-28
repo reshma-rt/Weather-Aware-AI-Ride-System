@@ -1,0 +1,23 @@
+/* Scoped to the companion card; existing dashboard controls retain their styles. */
+#movioTravelCompanion{background:linear-gradient(120deg,#fff9e8 0%,var(--paper,#fff) 78%);border:1px solid #f2df9c;border-radius:17px;padding:12px 14px;margin:14px 0 16px;color:var(--ink,#17191d);min-width:0}
+#movioTravelCompanion .movio-companion-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+#movioTravelCompanion h2{font-family:inherit;font-size:13px;letter-spacing:0;line-height:1.35;margin:0;font-weight:800}
+#movioTravelCompanion .movio-companion-refresh{flex:none;min-width:36px;min-height:36px;border:1px solid #eadca8;border-radius:11px;background:var(--paper,#fff);color:var(--ink,#17191d);font-size:22px;line-height:1;padding:4px;cursor:pointer}
+#movioTravelCompanion .movio-companion-refresh:focus-visible{outline:2px solid #9e7300;outline-offset:2px}
+#movioTravelCompanion .movio-companion-refresh:disabled{opacity:.45;cursor:wait}
+#movioTravelCompanion .movio-companion-greeting{font-size:11px;color:#646a72;line-height:1.45;margin:2px 0 8px;overflow-wrap:anywhere}
+#movioTravelCompanion .movio-companion-weather{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:5px 0 9px;min-width:0}
+#movioTravelCompanion [hidden]{display:none!important}
+#movioTravelCompanion .movio-companion-primary{display:flex;align-items:center;gap:10px;min-width:0}
+#movioTravelCompanion .movio-companion-primary>strong{font-family:Manrope,'DM Sans',Arial,sans-serif;font-size:29px;line-height:1.1;letter-spacing:-1.1px;font-weight:800;white-space:nowrap}
+#movioTravelCompanion .movio-companion-summary{display:grid;gap:3px;min-width:0}
+#movioTravelCompanion .movio-companion-summary>b{font-size:12px;line-height:1.25}
+#movioTravelCompanion .movio-companion-summary>span{font-size:10px;color:#646a72;overflow-wrap:anywhere;line-height:1.3}
+#movioTravelCompanion .movio-companion-rain{display:grid;gap:3px;text-align:right;flex:none;padding-left:9px;border-left:1px solid #eadca8}
+#movioTravelCompanion .movio-companion-rain>b{font-size:19px;line-height:1.15}
+#movioTravelCompanion .movio-companion-rain>span{font-size:9px;color:#646a72;max-width:70px;line-height:1.3}
+#movioTravelCompanion .movio-companion-tips{list-style:none;padding:0;margin:7px 0 0;display:grid;gap:5px}
+#movioTravelCompanion .movio-companion-tips>li{font-size:12px;line-height:1.45;margin:0;padding-left:10px;position:relative;overflow-wrap:anywhere}
+#movioTravelCompanion .movio-companion-tips>li:before{content:'';position:absolute;left:0;top:.57em;width:4px;height:4px;border-radius:50%;background:#b0881b}
+#movioTravelCompanion .movio-companion-note{font-size:9px;line-height:1.35;color:#76736a;margin:8px 0 0}
+@media(max-width:600px){#movioTravelCompanion{padding:10px 12px;margin:11px 0 13px}#movioTravelCompanion .movio-companion-refresh{min-width:44px;min-height:44px}#movioTravelCompanion .movio-companion-primary>strong{font-size:26px}}

@@ -1,0 +1,295 @@
+{
+  "priority": "current applied working-project files win over older input-package versions",
+  "archives": [
+    {
+      "name": "MOVIO_CURRENT_PROJECT(1).zip",
+      "sha256": "c8969929d026f51f27f6d1aaca35bdac8f9be65fa526420241831a6f97ed806c"
+    },
+    {
+      "name": "all_kaggle_inputs (1).zip",
+      "sha256": "3a3a3e7ee19d1e735608ee6eac81e1a0ec5e4d6401ad556322d6cb76383b1202"
+    }
+  ],
+  "files": [
+    {
+      "path": "app/gateway.py",
+      "origin": "available runtime notebook",
+      "unchanged_from_working_export": false,
+      "sha256": "90f7f44b138d462685113d4ba5d8045189a8fd15e8c967f19add1435702ab034"
+    },
+    {
+      "path": "app/integrations/ai_call_page.html",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "723c6959c972c63fb85b59180a9935ae299e970cfa980331dcfacea3a5c2058a"
+    },
+    {
+      "path": "app/integrations/ai_call_sarvam.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": false,
+      "sha256": "e236b821954fdd8296a5570abe1878a1c490c9d99d2238c5dbbf04b78bd4ac8b"
+    },
+    {
+      "path": "app/integrations/movio_booking_reliability.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "05b51c5c754e20d25258a91697ca85349d326b5a099abc67d7285e1ead165db8"
+    },
+    {
+      "path": "app/integrations/movio_confirmation_flow.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "1b6827aa18c411f715c96f448c3026dff23bc5b766cf64fa4e3ddaaa3e552589"
+    },
+    {
+      "path": "app/integrations/movio_customer_care.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "e469bcbc310630edecf8e0550958a9429598fb5411786890c0d4b59483e48a31"
+    },
+    {
+      "path": "app/integrations/movio_customer_care_api.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "fbdb6c5109a79abc712732c2d0a82aeb26462a0321da805aa61611a56f000e89"
+    },
+    {
+      "path": "app/integrations/movio_customer_care_context.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "190a3220fe086870502ca89f73b85fd91cef5927c0748e5b603a243b1784a7fe"
+    },
+    {
+      "path": "app/integrations/movio_customer_tools.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "f2d87dfd8e624b2d487d78f1786f4afc91741da0f9a83f0b5b919d15c0dee73d"
+    },
+    {
+      "path": "app/integrations/movio_friendly_weather.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "5d2b5fa73367c2cf26886a7b00c9ebe8219cff94ce0f961f92b8af6ccf45c653"
+    },
+    {
+      "path": "app/integrations/movio_group_booking_slots.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "e0ab45196a3c3aa6c72adaff7e454352bd1ac1df0367cbd4f7ded41185b4dbf7"
+    },
+    {
+      "path": "app/integrations/movio_optional_weather.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "a1ba9d9d88799e0215c5b926cd11a444a201a443f6626cf21ae9538659d54042"
+    },
+    {
+      "path": "app/integrations/movio_original_tts_adapter.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "4c5f2061b9f5eb1c61a9ccd8dead795644a39d921186d1bef32d363d0be38601"
+    },
+    {
+      "path": "app/integrations/movio_required_weather.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "0506b8f43f455d57def44309aa6c6e289bc594eccff712a3f9b3759c1883071a"
+    },
+    {
+      "path": "app/integrations/movio_tanglish_speech_quality.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "bae4a44349054f89930668dc73c319f2415f9f978021cd49feb3f1d8021228ec"
+    },
+    {
+      "path": "app/integrations/movio_time_route.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "2775a29b28545b7cc330724689d072e063174efb834eb1d4efe807a509e28cd4"
+    },
+    {
+      "path": "app/integrations/movio_weather_guard.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "d1fd3ae90f6bfcbc078b09f9b6edc21c2d6f08362ce0244ccc5aa6f45a2f1bcd"
+    },
+    {
+      "path": "app/integrations/test_weather_guard.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": false,
+      "sha256": "6181b7671435985692e574398334a5f8054ca2c6ff7d946c8841eddcbbdec64c"
+    },
+    {
+      "path": "app/integrations/weather_call_page.html",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "723c6959c972c63fb85b59180a9935ae299e970cfa980331dcfacea3a5c2058a"
+    },
+    {
+      "path": "app/package_version.json",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "4ef0028ced9d4454b5167cdd37d6e950ea2e46766b6e11a835f3aaca432d113a"
+    },
+    {
+      "path": "app/server.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": false,
+      "sha256": "a43d157b626619940b697853acaf45751c6816649b224cec30184f7e53cd26a8"
+    },
+    {
+      "path": "app/tests/test_workflow.py",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "73b3b02b8649e236c78a0d28172a8eb60c9ebaed7ac2dfafb4f52c59def78c02"
+    },
+    {
+      "path": "app/web/app.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "a7d31f99eacfd26da330e320d9558e8ebe63f3962068e2976ae108bfb1b292ec"
+    },
+    {
+      "path": "app/web/auth.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "7ddc2e206a307f0688f2f1dacb3544e9ed924c54d61140387f0c50af859fda7e"
+    },
+    {
+      "path": "app/web/customer_booking_tools.css",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "14428b3cf6c331727f7bb9bde7434436fa2417e5b7369eeafe60b83dce71a93f"
+    },
+    {
+      "path": "app/web/customer_booking_tools.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "d2cd1b9e878867e848afbc32cd77027bd5ff645dad3483809ec76bbd38224740"
+    },
+    {
+      "path": "app/web/customer_care_companion.css",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "50cd4edf7e153a398f50ae287bf23e68de9243c74669b4d50b2ca91c45e91bd4"
+    },
+    {
+      "path": "app/web/customer_care_companion.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "f67e20797e5d28349ecb4eb1297ee8e289f03434cbeb50ddb9132fedd8f12c65"
+    },
+    {
+      "path": "app/web/dashboard_priority.css",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "b99ba0b37c3db2ee5092322ce043fdfe537cffa1a72c851bc875f3271ef4ee08"
+    },
+    {
+      "path": "app/web/dashboard_priority.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "d12b8c2647f3594816d61623576ff0daae6d6d20f5227c482c396f14d5d6ab2c"
+    },
+    {
+      "path": "app/web/driver_dashboard.css",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "7ca87dff67a3b3d551a29e559b0a960c9b373a3ffe73632677b7229c4db0bba5"
+    },
+    {
+      "path": "app/web/driver_dashboard.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "015925b2f35cdc5ec55217034988b111f0fe4f35c5ef32ca967fd78b732ca0d5"
+    },
+    {
+      "path": "app/web/index.html",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": false,
+      "sha256": "4575bfb38e60b6c08f5702e90f49755d71698f728978c964b22c59ba867633b5"
+    },
+    {
+      "path": "app/web/live_map_motion.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "c1defb1f63db021a7b3f9335f72311cdb23818846fca936e2884bdc568a3c18e"
+    },
+    {
+      "path": "app/web/live_tracking.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "f87635874b594eaf2f4a421ed3eb0cfc63d94f56bbbcff171b88c1be37498c88"
+    },
+    {
+      "path": "app/web/manifest.json",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "b5f3f6c55ff0ef7817fa4c44e0d972037337d723c686abe59d27c2b0a4684a8f"
+    },
+    {
+      "path": "app/web/movio_companion_debug.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "2ea72d76a2d0899d23ccf71781e8d38bb109fb324f6dd2e9da2756d558cd8e3e"
+    },
+    {
+      "path": "app/web/movio_customer_dashboard.css",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "40e1f62de906109885373d90635c28f173bcc7571f6f901d267c7ae2fc2f1dbd"
+    },
+    {
+      "path": "app/web/movio_driver_upcoming.js",
+      "origin": "all_kaggle_inputs (1).zip: movio-driver-upcoming-patch",
+      "unchanged_from_working_export": false,
+      "sha256": "d90ac7a5e0c4a6b666f7592b90a18af29f2a6b92cc6907775bdcf50b255e94b5"
+    },
+    {
+      "path": "app/web/movio_enhancements.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "f9e6a9552e09f66f3fcfe5865aed63abc4d8934e9d55839b93d64e34511f4e4e"
+    },
+    {
+      "path": "app/web/movio_forecast_listen.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "a0f35c425212b97a6265855f0130924929d5b74edab074da341337610c06bcaa"
+    },
+    {
+      "path": "app/web/movio_saved_booking_fix.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "2aa0e05f810d60314721ab6ab99b9355bae79f5db69990034f02a84b06cbda37"
+    },
+    {
+      "path": "app/web/styles.css",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "8ee96d56faaa8fb832c6abaf3892f0efa89bb4ea4f878c94695193a97e77c56c"
+    },
+    {
+      "path": "app/web/weather_dashboard.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "b0c8c6b7e02143c6ed4879349230508e7eab997ea8ae4c60610602018725741c"
+    },
+    {
+      "path": "app/web/weather_manual.js",
+      "origin": "MOVIO_CURRENT_PROJECT(1).zip",
+      "unchanged_from_working_export": true,
+      "sha256": "b90da1336e3de64422e9516e5a84792f082df2b4409f0296c9a87b10040798ff"
+    },
+    {
+      "path": "assets/references/english_reference_16k.wav",
+      "origin": "all_kaggle_inputs (1).zip: movio-tts-reference-audios",
+      "sha256": "4831f04638d8e29e9e596262ab31743ee8be194c7e38a57841d3c6c0cac7b029"
+    },
+    {
+      "path": "assets/references/tamil_reference.wav",
+      "origin": "all_kaggle_inputs (1).zip: movio-tts-reference-audios",
+      "sha256": "66b42d93d4874bebe2c0c2f9bca66d0ee2986d7814a5b5fcc8351edb98b8911b"
+    }
+  ]
+}
